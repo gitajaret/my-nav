@@ -254,242 +254,266 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
    ===================================================================== */
 
 const SITE = {
-  title: "聚合导航",
-  subtitle: "链接与文章，一处归档",
-  author: "常一锦"
+  "title": "聚合导航",
+  "subtitle": "网站链接 · 使用教程 · 问题解答",
+  "author": "常一锦"
 };
 
 const ITEMS = [
-
-  /* ======================= 常用工具 ======================= */
   {
-    type: "link", group: "常用工具",
-    title: "GitHub", url: "https://github.com",
-    desc: "全球最大的代码托管平台，仓库、Issue、Actions 一应俱全",
-    tags: ["代码", "协作"], icon: "🐙", star: true
+    "type": "link",
+    "group": "网站链接",
+    "title": "Sub2API 控制台",
+    "url": "https://api.juheai.shop",
+    "desc": "API 网关后台：创建密钥、查看用量、充值",
+    "tags": [
+      "自建",
+      "必看"
+    ],
+    "icon": "⚙️"
   },
   {
-    type: "link", group: "常用工具",
-    title: "Cloudflare", url: "https://dash.cloudflare.com",
-    desc: "CDN、DNS、Pages 静态托管，免费额度足够个人项目用",
-    tags: ["CDN", "部署"], icon: "☁️", star: true
+    "type": "link",
+    "group": "网站链接",
+    "title": "节点订阅站",
+    "url": "https://juheai.shop",
+    "desc": "代理订阅与节点管理入口",
+    "tags": [
+      "自建",
+      "网络"
+    ],
+    "icon": "🌐"
   },
   {
-    type: "link", group: "常用工具",
-    title: "MDN 文档", url: "https://developer.mozilla.org",
-    desc: "Web 技术权威文档，HTML / CSS / JS 查询首选",
-    tags: ["文档"], icon: "📖"
+    "type": "link",
+    "group": "网站链接",
+    "title": "Claude",
+    "url": "https://claude.ai",
+    "desc": "Anthropic 出品，长文本理解与代码能力突出",
+    "tags": [
+      "AI",
+      "对话"
+    ],
+    "icon": "✳️"
   },
   {
-    type: "link", group: "常用工具",
-    title: "Can I Use", url: "https://caniuse.com",
-    desc: "查询浏览器对前端特性的兼容性支持情况",
-    tags: ["兼容性"], icon: "✅"
-  },
-
-  /* ======================= AI 工具 ======================= */
-  {
-    type: "link", group: "AI 工具",
-    title: "Claude", url: "https://claude.ai",
-    desc: "Anthropic 出品，长文本理解与代码能力突出",
-    tags: ["对话", "编程"], icon: "✳️", star: true
+    "type": "link",
+    "group": "网站链接",
+    "title": "ChatGPT",
+    "url": "https://chat.openai.com",
+    "desc": "OpenAI 对话助手，通用问答与创作",
+    "tags": [
+      "AI",
+      "对话"
+    ],
+    "icon": "🤖"
   },
   {
-    type: "link", group: "AI 工具",
-    title: "ChatGPT", url: "https://chat.openai.com",
-    desc: "OpenAI 的对话助手，通用问答与创作",
-    tags: ["对话"], icon: "🤖"
+    "type": "link",
+    "group": "网站链接",
+    "title": "Hugging Face",
+    "url": "https://huggingface.co",
+    "desc": "开源模型与数据集社区",
+    "tags": [
+      "AI",
+      "模型"
+    ],
+    "icon": "🤗"
   },
   {
-    type: "link", group: "AI 工具",
-    title: "Hugging Face", url: "https://huggingface.co",
-    desc: "开源模型与数据集社区，模型权重下载站",
-    tags: ["模型"], icon: "🤗"
-  },
-
-  /* ======================= 我的服务 ======================= */
-  {
-    type: "link", group: "我的服务",
-    title: "Sub2API 控制台", url: "https://api.juheai.shop",
-    desc: "API 网关后台，管理账号、分组、密钥与用量",
-    tags: ["自建", "网关"], icon: "⚙️", star: true
+    "type": "link",
+    "group": "网站链接",
+    "title": "GitHub",
+    "url": "https://github.com",
+    "desc": "全球最大的代码托管平台",
+    "tags": [
+      "开发"
+    ],
+    "icon": "🐙"
   },
   {
-    type: "link", group: "我的服务",
-    title: "节点订阅", url: "https://juheai.shop",
-    desc: "代理订阅与节点管理入口",
-    tags: ["自建", "网络"], icon: "🌐"
-  },
-
-  /* ======================= 文章 ======================= */
-  {
-    type: "article", group: "笔记",
-    title: "Ubuntu 服务器初始化清单",
-    desc: "新机器到手后的十几项必做配置，从 SSH 加固到防火墙",
-    tags: ["运维", "Linux"], icon: "📝",
-    date: "2026-10-30", read: 6,
-    body: `
-## 一、创建普通用户
-
-拿到一台新机器，第一件事不是装软件，而是别再用 root 裸奔。
-
-\`\`\`bash
-adduser deploy
-usermod -aG sudo deploy
-\`\`\`
-
-然后把你的公钥放进 \`~/.ssh/authorized_keys\`，确认能用密钥登录后再往下走。
-
-## 二、SSH 加固
-
-编辑 \`/etc/ssh/sshd_config\`：
-
-- \`PermitRootLogin no\` —— 禁止 root 直接登录
-- \`PasswordAuthentication no\` —— 关闭密码登录
-- \`Port 22\` —— 可改端口，但别指望这是安全措施
-
-改完 **先别断开当前连接**，另开一个窗口测试能登录，再重启服务：
-
-\`\`\`bash
-systemctl restart ssh
-\`\`\`
-
-> 这一步最容易被自己锁在门外。永远保持一个已登录的窗口开着。
-
-## 三、防火墙
-
-只用 ufw 就够：
-
-\`\`\`bash
-ufw default deny incoming
-ufw default allow outgoing
-ufw allow 22/tcp
-ufw enable
-\`\`\`
-
-## 四、时间同步与自动更新
-
-\`\`\`bash
-timedatectl set-timezone Asia/Shanghai
-apt install -y unattended-upgrades
-dpkg-reconfigure --priority=low unattended-upgrades
-\`\`\`
-
-## 五、常用检查清单
-
-| 项目 | 命令 |
-|---|---|
-| 磁盘 | \`df -h\` |
-| 内存 | \`free -h\` |
-| 端口监听 | \`ss -tlnp\` |
-| 系统负载 | \`uptime\` |
-
-做完这些，机器才算能安心放出去。
-`
+    "type": "link",
+    "group": "网站链接",
+    "title": "Cloudflare",
+    "url": "https://dash.cloudflare.com",
+    "desc": "CDN、DNS、Pages 静态托管",
+    "tags": [
+      "开发",
+      "部署"
+    ],
+    "icon": "☁️"
   },
   {
-    type: "article", group: "笔记",
-    title: "Docker Compose 常见坑位记录",
-    desc: "容器起不来、端口不通、数据丢失，这些坑我都踩过",
-    tags: ["Docker"], icon: "🐳",
-    date: "2026-10-28", read: 5,
-    body: `
-## 容器起来了但端口不通
-
-八成是监听地址的问题。程序在容器里绑了 \`127.0.0.1\`，外面自然访问不到。
-
-检查容器内：
-
-\`\`\`bash
-docker exec -it <容器> ss -tlnp
-\`\`\`
-
-如果看到 \`127.0.0.1:8080\` 而不是 \`0.0.0.0:8080\`，就是这个原因。改程序的监听配置，或者在 compose 里加：
-
-\`\`\`yaml
-command: --bind 0.0.0.0
-\`\`\`
-
-## 数据卷写成了相对路径
-
-\`\`\`yaml
-volumes:
-  - ./data:/app/data   # 相对当前 compose 文件位置
-  - /opt/app/data:/app/data  # 绝对路径，推荐
-\`\`\`
-
-用相对路径时，如果你在别的目录执行 \`docker compose up\`，数据会写到别处，看起来像"数据丢了"。
-
-## heredoc 通过 SSH 传过去会失效
-
-在本地写好的 SQL 用 heredoc 塞进 \`docker exec\`，经常会静默失败——命令返回 0，但什么都没执行。
-
-**改用管道或 \`-c\` 参数**：
-
-\`\`\`bash
-# 不可靠
-docker exec -i pg psql -U user -d db <<'SQL'
-INSERT ...
-SQL
-
-# 可靠
-docker exec pg psql -U user -d db -c "INSERT ..."
-\`\`\`
-
-## 重启后配置没生效
-
-Docker 的配置有些是读进内存的，改完文件必须重启：
-
-\`\`\`bash
-docker compose restart <服务>
-\`\`\`
-
-**注意别用后台方式执行**，SSH 断开会把重启动作杀掉，服务可能停在半路。
-`
+    "type": "link",
+    "group": "网站链接",
+    "title": "MDN 文档",
+    "url": "https://developer.mozilla.org",
+    "desc": "Web 技术权威文档",
+    "tags": [
+      "开发",
+      "文档"
+    ],
+    "icon": "📖"
   },
   {
-    type: "article", group: "笔记",
-    title: "为什么静态站要放 Cloudflare Pages",
-    desc: "免费、免运维、自动 HTTPS，个人项目的性价比之选",
-    tags: ["部署", "Cloudflare"], icon: "🚀",
-    date: "2026-10-25", read: 3,
-    body: `
-## 免费额度够用
-
-个人站点、文档、博客，Pages 的免费额度基本用不完：
-
-- 每月 500 次构建
-- 无限带宽（合理使用）
-- 无限请求数
-- 自动签发 HTTPS 证书
-
-## 部署流程极简
-
-连上 GitHub 仓库后，每次 push 自动构建发布。配置全部留空即可：
-
-| 配置项 | 填什么 |
-|---|---|
-| Framework preset | None |
-| Build command | 留空 |
-| Output directory | 留空或 \`/\` |
-
-**最容易犯错的地方**就是这里——填了构建命令反而会失败，纯静态文件不需要构建。
-
-## 自定义域名要注意一点
-
-Cloudflare Pages 的自定义域名，**必须和 Pages 项目在同一个 Cloudflare 账户**。
-
-如果你的域名在 A 账户、项目建在 B 账户，是绑不上的。这时候有两个选择：
-
-1. 把项目建到有域名的那个账户（推荐，不动 DNS）
-2. 把域名迁到项目所在的账户（要改 NS，麻烦）
-
-## 只加 CNAME 是不够的
-
-很多人以为在 DNS 里加一条 \`CNAME www → xxx.pages.dev\` 就能访问。
-
-实际上 Pages 会返回 **530** 错误——它只认「已经绑定到项目」的域名。必须先在 Pages 后台点「Add custom domain」，DNS 才会生效。
-`
+    "type": "link",
+    "group": "网站链接",
+    "title": "Can I Use",
+    "url": "https://caniuse.com",
+    "desc": "查询浏览器特性兼容性",
+    "tags": [
+      "开发"
+    ],
+    "icon": "✅"
+  },
+  {
+    "type": "article",
+    "group": "使用教程",
+    "title": "快速开始：三步接入",
+    "desc": "注册、创建密钥、填入客户端，五分钟跑通第一个请求",
+    "tags": [
+      "入门",
+      "必读"
+    ],
+    "icon": "🚀",
+    "date": "2026-10-31",
+    "read": 3,
+    "body": "## 第一步：登录控制台\n\n打开 [Sub2API 控制台](https://api.juheai.shop)，用注册的邮箱登录。\n\n登录后先看一眼**余额**，新账户可能有免费额度，也可能需要先充值。\n\n## 第二步：创建密钥\n\n进入「密钥」页面，点「新建密钥」，然后：\n\n- **选择分组**：不同分组对应不同的模型和价格，不确定就先用默认分组\n- **设置名称**：随便起个名字，方便以后区分（比如「Cherry 用」）\n- **设置额度**：可选，不填就是不限\n\n创建后会得到一串以 `sk-` 开头的字符串。**这串东西只显示一次**，一定复制保存好。\n\n> 密钥等同于你的账号密码。不要发给任何人，也不要提交到 Git 仓库。\n\n## 第三步：填入客户端\n\n以 Cherry Studio 为例，在设置里添加一个 OpenAI 兼容的服务商：\n\n| 配置项 | 填什么 |\n|---|---|\n| API 地址 | `https://api.juheai.shop` |\n| API 密钥 | 刚才复制的那串 `sk-...` |\n| 模型 | 从控制台的「模型广场」复制模型名 |\n\n保存后发一条消息测试，能正常回复就算接通了。\n\n## 常见卡点\n\n- **地址结尾不要加 `/v1`**，多数客户端会自动补，加了会变成 `/v1/v1`\n- **密钥首尾不要有空格**，从网页复制常带换行\n- **模型名要完全一致**，包括大小写和连字符"
+  },
+  {
+    "type": "article",
+    "group": "使用教程",
+    "title": "客户端配置指南",
+    "desc": "Cherry Studio、ChatBox、Cursor、Claude Code 分别怎么填",
+    "tags": [
+      "配置",
+      "客户端"
+    ],
+    "icon": "🛠",
+    "date": "2026-10-31",
+    "read": 4,
+    "body": "## Cherry Studio / ChatBox / NextChat\n\n这类聊天客户端都走 **OpenAI 兼容协议**，配置大同小异：\n\n```text\nAPI 地址：https://api.juheai.shop\nAPI 密钥：sk-xxxxxxxx\n模型：deepseek-v4.1-flash（举例，以模型广场为准）\n```\n\n添加模型时，如果客户端要你手填模型 ID，就从**模型广场**复制，别手打。\n\n## Cursor\n\nCursor 用的是 OpenAI 协议，在 `Settings → Models → OpenAI API Key` 里：\n\n1. 勾选 **Override OpenAI Base URL**\n2. Base URL 填 `https://api.juheai.shop/v1`\n3. API Key 填你的密钥\n4. 点 **Verify** 验证\n\n> Cursor 这里**需要**带 `/v1`，它不会自动补。这是最容易搞错的地方。\n\n## Claude Code\n\nClaude Code 走 **Anthropic 协议**，需要配环境变量：\n\n```bash\nexport ANTHROPIC_BASE_URL=https://api.juheai.shop\nexport ANTHROPIC_AUTH_TOKEN=sk-xxxxxxxx\n```\n\n**注意**：Claude Code 必须用支持 Anthropic 协议的分组。如果你的密钥是纯 OpenAI 分组，会报 `This group does not allow /v1/messages dispatch`。\n\n## 不知道自己该用哪个协议？\n\n记住一句话：\n\n| 你用的客户端 | 协议 | 密钥要求 |\n|---|---|---|\n| Cherry Studio、ChatBox、Cursor | OpenAI | 任意分组 |\n| Claude Code、Claude 官方客户端 | Anthropic | 必须支持 Anthropic 的分组 |\n\n不确定就问客服，别自己猜。"
+  },
+  {
+    "type": "article",
+    "group": "使用教程",
+    "title": "如何选择模型",
+    "desc": "不同场景该用哪个模型，贵的和便宜的区别在哪",
+    "tags": [
+      "选型"
+    ],
+    "icon": "🎯",
+    "date": "2026-10-31",
+    "read": 3,
+    "body": "## 先看模型广场\n\n控制台里的**模型广场**列出了当前可用的所有模型和价格。以那里为准，本文只是给个思路。\n\n## 按场景选\n\n| 场景 | 建议 |\n|---|---|\n| 日常问答、翻译、总结 | 便宜的 Flash 类模型就够 |\n| 写代码、改 bug | 中高档模型，代码能力差距明显 |\n| 长文档分析（几十页 PDF） | 必须选支持长上下文的，注意阶梯价 |\n| 创意写作 | 中高档，便宜的写出来比较干 |\n\n## 关于价格\n\n模型价格 = **渠道定价 × 分组倍率**。\n\n- 倍率 0.1 的意思是「官方价的十分之一」\n- 同一个模型在不同分组里倍率可能不同\n- 充值前先看清楚你要用的分组倍率\n\n## 关于长上下文\n\n部分模型启用了**阶梯计费**：\n\n| 输入长度 | 价格 |\n|---|---|\n| ≤ 272K tokens | 标准价 |\n| > 272K tokens | 标准价 × 2 |\n\n所以别没事塞一整个代码库进去。**按需给上下文**，又快又省钱。\n\n## 一个实用建议\n\n先用便宜模型把 prompt 调好，确认效果满意了，再换贵模型跑正式内容。这样试错成本最低。"
+  },
+  {
+    "type": "article",
+    "group": "使用教程",
+    "title": "充值与计费说明",
+    "desc": "余额怎么算、怎么充、用完会怎样",
+    "tags": [
+      "充值",
+      "计费"
+    ],
+    "icon": "💳",
+    "date": "2026-10-31",
+    "read": 2,
+    "body": "## 计费方式\n\n按 **token** 计费，用多少扣多少，不做预扣。\n\n每次请求后，控制台的「用量」页面会记录：\n\n- 用了哪个模型\n- 输入多少 token、输出多少 token\n- 扣了多少钱\n\n## 怎么充值\n\n控制台 → 充值页面，按提示操作。\n\n> 建议先小额测试（几块钱），确认整条链路通了再充大额。\n\n## 余额不足会怎样\n\n请求会被直接拒绝，返回：\n\n```text\n403 Insufficient account balance\n```\n\n这时候充值即可恢复，不需要重启任何东西。\n\n## 余额提醒\n\n余额较低时系统会发提醒（邮件或站内通知）。留意一下，别等断了才发现。"
+  },
+  {
+    "type": "article",
+    "group": "问题解答",
+    "title": "连接超时、连不上",
+    "desc": "报错 timeout、Connection refused 时按这个顺序排查",
+    "tags": [
+      "网络",
+      "高频"
+    ],
+    "icon": "🌐",
+    "date": "2026-10-31",
+    "read": 3,
+    "body": "## 报错长这样\n\n```text\nRequest timed out\ndial tcp: i/o timeout\nConnection refused\nconnection reset by peer\n```\n\n## 按顺序试这几步\n\n**1. 关掉梯子（VPN/代理）**\n\n这是最常见的原因。挂梯子会让请求绕远路，反而不稳。先关掉再试。\n\n**2. 换网络**\n\n用手机热点试一下。如果热点能通、Wi-Fi 不通，就是当前网络的问题（公司网络、校园网常有端口限制）。\n\n**3. 换 DNS**\n\n改成 `223.5.5.5`（阿里）或 `1.1.1.1`（Cloudflare）。\n\n**4. 检查代理软件的规则**\n\n如果必须挂梯子，把我们的域名加入**直连白名单**，别让它走代理。\n\n## 还是不行？\n\n把「客户端名称 + 完整报错 + 发生时间」发给客服。**别只说「连不上」**，那样没法定位。"
+  },
+  {
+    "type": "article",
+    "group": "问题解答",
+    "title": "401 认证失败",
+    "desc": "密钥无效、incorrect api key，多数是复制带了空格",
+    "tags": [
+      "密钥",
+      "高频"
+    ],
+    "icon": "🔑",
+    "date": "2026-10-31",
+    "read": 2,
+    "body": "## 报错长这样\n\n```text\n401 Unauthorized\ninvalid api key\nincorrect api key\nAuthentication failed\n```\n\n## 排查顺序\n\n**1. 检查首尾空格**\n\n从网页复制密钥时，很容易带上换行或空格。粘贴到客户端后，把光标放到末尾多按几次退格。\n\n**2. 重新复制一次**\n\n回控制台重新复制，不要用之前存的旧值。\n\n**3. 确认密钥没被删或停用**\n\n控制台的「密钥」页面会显示状态。如果显示已禁用，新建一个。\n\n**4. 确认格式**\n\n请求头应该是：\n\n```text\nAuthorization: Bearer sk-xxxxxxxx\n```\n\n大多数客户端会自动处理，但有些需要你手动把 `Bearer ` 加上（**注意后面有个空格**）。\n\n**5. 确认填对了位置**\n\n有的客户端有两个输入框：一个是「API Key」，一个是「组织 ID」。别填反了。"
+  },
+  {
+    "type": "article",
+    "group": "问题解答",
+    "title": "余额不足",
+    "desc": "403 Insufficient balance，充值即可恢复",
+    "tags": [
+      "计费"
+    ],
+    "icon": "💰",
+    "date": "2026-10-31",
+    "read": 1,
+    "body": "## 报错长这样\n\n```text\n403 Insufficient account balance\ninsufficient balance\n余额不足\n```\n\n## 怎么办\n\n这不是故障，是账户余额用完了。\n\n1. 登录控制台查看余额\n2. 充值\n3. 立即恢复，不需要重启客户端\n\n## 想省着用\n\n- 换倍率更低的分组\n- 日常任务用便宜模型\n- 控制上下文长度，别每次都塞满\n\n> 如果余额还有但报这个错，把截图发客服——可能是分组倍率配置问题。"
+  },
+  {
+    "type": "article",
+    "group": "问题解答",
+    "title": "模型不存在或不支持",
+    "desc": "404 / model not found，九成是模型名写错了",
+    "tags": [
+      "模型"
+    ],
+    "icon": "🔍",
+    "date": "2026-10-31",
+    "read": 2,
+    "body": "## 报错长这样\n\n```text\nModel \"xxx\" is not supported by any configured account\nmodel_not_found\nThe model `xxx` does not exist\n404 Not Found\n```\n\n## 为什么会这样\n\n两种可能：\n\n1. **模型名拼错了** —— 最常见\n2. **你的分组里没有这个模型**\n\n## 怎么办\n\n**从模型广场复制，不要手打。**\n\n模型名对大小写、连字符、版本号都敏感：\n\n```text\n✅ deepseek-v4.1-flash\n❌ deepseek-v4-1-flash\n❌ DeepSeek-V4.1-Flash\n❌ deepseek v4.1 flash\n```\n\n## 模型广场里也没有？\n\n说明当前分组确实没有这个模型。换一个同类模型，或者问客服有没有其他分组可用。"
+  },
+  {
+    "type": "article",
+    "group": "问题解答",
+    "title": "429 请求太频繁",
+    "desc": "被限流了，等一分钟或降低并发",
+    "tags": [
+      "限流"
+    ],
+    "icon": "⏱",
+    "date": "2026-10-31",
+    "read": 2,
+    "body": "## 报错长这样\n\n```text\n429 Too Many Requests\ngroup requests-per-minute limit exceeded\nToo many pending requests, please retry later\n```\n\n## 分清两种限流\n\n| 报错里出现 | 是谁的限制 | 怎么解决 |\n|---|---|---|\n| `group requests-per-minute` | **本站**分组 RPM | 等一分钟，或降低并发 |\n| `Too many pending` | **上游**并发上限 | 降低并发，或错峰使用 |\n\n## 怎么办\n\n1. **等 1 分钟**再试，多数情况自动恢复\n2. **降低并发**：同时发 10 个请求改成一个个发\n3. **关掉客户端的密集重试**，改成间隔重试\n4. 程序批量调用时，请求之间加间隔（比如每次 200ms）\n\n## 长期需要高并发\n\n联系客服说明用途，可以评估提升限额。"
+  },
+  {
+    "type": "article",
+    "group": "问题解答",
+    "title": "内容被拦截",
+    "desc": "提示词命中关键词拦截规则，换措辞即可",
+    "tags": [
+      "风控",
+      "重要"
+    ],
+    "icon": "🛡",
+    "date": "2026-10-31",
+    "read": 3,
+    "body": "## 报错长这样\n\n```text\n提示词命中关键词拦截规则，请调整提示词后重试\n内容审计命中风险规则\nAccess forbidden (403)\n```\n\n## 原因\n\n**上游服务商**对内容做了安全过滤，你的请求里有它判定为敏感的词语。\n\n## 怎么解决\n\n1. **换一种说法** —— 用同义词、英文或更中性的表达\n2. **拆开写** —— 把长 prompt 分成几段，逐段确认是哪段触发的\n3. **删掉敏感内容** —— 涉及逆向、破解、越狱、违法用途的部分\n\n## 本站规则\n\n> 本站禁止逆向、破甲、RP（越狱角色扮演）以及其他违法违规行为。\n> 触发这类拦截属于正常的风控结果，**请勿反复重试**。\n\n## 为什么不能硬撞\n\n一次内容拦截会让**整条线路短暂冷却约 10 分钟**，期间**其他用户也用不了**。\n\n所以请配合调整措辞。反复重试只会让更多人的请求失败。"
+  },
+  {
+    "type": "article",
+    "group": "问题解答",
+    "title": "回答到一半断了",
+    "desc": "流式中断，重发即可；总在同一处断就换问法",
+    "tags": [
+      "稳定性"
+    ],
+    "icon": "✂️",
+    "date": "2026-10-31",
+    "read": 2,
+    "body": "## 报错长这样\n\n```text\nstream disconnected before completion\nstream ended before a terminal event\nUpstream response stream was interrupted\n504 Gateway Timeout\n```\n\n## 怎么办\n\n**1. 直接重发**\n\n多数情况重试就好，只是网络抖动。\n\n**2. 总在同一处断 → 换问法**\n\n如果每次都断在相同位置，说明是那段内容触发了问题（可能是敏感词，也可能是上游解析不了）。\n\n**3. 关掉梯子或换网络**\n\n网络不稳是流式中断的主因。\n\n**4. 超长回答分段要**\n\n让它先写第一部分，再继续写第二部分。一次生成几万字很容易中途断。\n\n**5. 关掉客户端的流式输出**\n\n有些客户端在流式模式下有 bug，改成非流式（关闭 Stream 开关）再试。\n\n**6. 超时设长一点**\n\n客户端超时至少给 60 秒，复杂任务给 300 秒。"
   }
 ];
 
@@ -581,10 +605,9 @@ function applyTheme(t) {
 /* ---------- 数据整理 ---------- */
 const GROUPS = [...new Set(ITEMS.map(i => i.group))];
 const GROUP_META = {
-  "常用工具": { icon: "🧰" },
-  "AI 工具": { icon: "🤖" },
-  "我的服务": { icon: "⚙️" },
-  "笔记": { icon: "📚" }
+  "网站链接": { icon: "🔗" },
+  "使用教程": { icon: "📘" },
+  "问题解答": { icon: "💡" }
 };
 
 function countsByGroup() {
