@@ -2,305 +2,772 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我的导航</title>
-<meta name="description" content="个人导航站">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>聚合导航</title>
+<meta name="description" content="个人网址导航与文章笔记">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#0f1115;--card:#171a21;--card-hover:#1e222b;--text:#e6e8ec;
-  --text-dim:#8b93a3;--accent:#4c8dff;--border:#262b36;
+  --bg:#0d0f14;--bg2:#12151c;--card:#181c25;--card2:#1f2430;
+  --text:#e8eaf0;--dim:#8a92a6;--line:#252b38;--accent:#5b8def;--accent2:#7c5bff;
+  --ok:#3fb950;--warn:#d29922;--radius:14px;
+  --shadow:0 4px 24px rgba(0,0,0,.35);
 }
-[data-theme="light"]{
-  --bg:#f5f6f8;--card:#ffffff;--card-hover:#f0f2f5;--text:#1a1d23;
-  --text-dim:#6b7280;--accent:#2563eb;--border:#e5e7eb;
+[data-theme=light]{
+  --bg:#f7f8fa;--bg2:#fff;--card:#fff;--card2:#f0f2f6;
+  --text:#16181d;--dim:#6b7280;--line:#e4e7ec;--accent:#2563eb;--accent2:#7c3aed;
+  --shadow:0 4px 20px rgba(0,0,0,.07);
 }
+html,body{height:100%}
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
-  background:var(--bg);color:var(--text);min-height:100vh;
-  transition:background .25s,color .25s;padding:0 20px 60px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;
+  transition:background .2s,color .2s;
+  -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:1100px;margin:0 auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
-/* 顶栏 */
-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:26px 0 18px;gap:16px;flex-wrap:wrap;
+/* ---------- 布局 ---------- */
+.layout{display:flex;min-height:100vh}
+.sidebar{
+  width:210px;flex-shrink:0;border-right:1px solid var(--line);
+  background:var(--bg2);padding:18px 12px;position:sticky;top:0;height:100vh;
+  overflow-y:auto;display:flex;flex-direction:column;gap:4px;
 }
-.logo{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:600}
-.logo-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
-.actions{display:flex;gap:10px;align-items:center}
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+
+/* ---------- 侧栏 ---------- */
+.brand{display:flex;align-items:center;gap:9px;padding:4px 8px 18px;font-weight:600;font-size:15px}
+.brand-dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 10px var(--accent)}
+.nav-label{font-size:11px;color:var(--dim);padding:14px 10px 6px;letter-spacing:.06em;text-transform:uppercase}
+.nav-item{
+  display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;
+  font-size:13.5px;color:var(--dim);transition:all .15s;width:100%;text-align:left;
+}
+.nav-item:hover{background:var(--card2);color:var(--text)}
+.nav-item.active{background:var(--card);color:var(--text);font-weight:500;box-shadow:inset 0 0 0 1px var(--line)}
+.nav-ico{width:17px;text-align:center;font-size:14px;flex-shrink:0}
+.nav-count{margin-left:auto;font-size:11px;color:var(--dim);background:var(--bg);padding:1px 6px;border-radius:20px}
+.sidebar-foot{margin-top:auto;padding:14px 8px 4px;border-top:1px solid var(--line);display:flex;gap:8px}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  display:flex;align-items:center;gap:12px;padding:14px 22px;
+  border-bottom:1px solid var(--line);background:var(--bg2);
+  position:sticky;top:0;z-index:20;
+}
+.crumb{font-size:13px;color:var(--dim);display:flex;align-items:center;gap:6px;min-width:0}
+.crumb b{color:var(--text);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spacer{flex:1}
 .icon-btn{
-  width:38px;height:38px;border-radius:10px;border:1px solid var(--border);
-  background:var(--card);color:var(--text-dim);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;font-size:17px;
-  transition:all .2s;
+  width:34px;height:34px;border-radius:9px;border:1px solid var(--line);
+  background:var(--card);display:flex;align-items:center;justify-content:center;
+  font-size:15px;color:var(--dim);transition:all .15s;flex-shrink:0;
 }
-.icon-btn:hover{background:var(--card-hover);color:var(--text);border-color:var(--accent)}
+.icon-btn:hover{color:var(--text);border-color:var(--accent);background:var(--card2)}
 
-/* 搜索 */
-.search-box{position:relative;margin:8px 0 28px}
-#search{
-  width:100%;padding:15px 52px 15px 48px;border-radius:14px;
-  border:1px solid var(--border);background:var(--card);color:var(--text);
-  font-size:15px;outline:none;transition:all .2s;
+/* ---------- 搜索 ---------- */
+.searchbar{padding:18px 22px 0;position:relative}
+.searchbar input{
+  width:100%;padding:12px 44px 12px 42px;border-radius:11px;
+  border:1px solid var(--line);background:var(--card);color:var(--text);
+  font-size:14px;outline:none;transition:all .18s;
 }
-#search:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(76,141,255,.13)}
-#search::placeholder{color:var(--text-dim)}
-.search-icon{
-  position:absolute;left:17px;top:50%;transform:translateY(-50%);
-  color:var(--text-dim);font-size:16px;pointer-events:none;
-}
-.kbd{
-  position:absolute;right:14px;top:50%;transform:translateY(-50%);
-  font-size:11px;color:var(--text-dim);border:1px solid var(--border);
-  padding:3px 7px;border-radius:6px;background:var(--bg);pointer-events:none;
-}
+.searchbar input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,141,239,.12)}
+.searchbar input::placeholder{color:var(--dim)}
+.s-ico{position:absolute;left:36px;top:50%;transform:translateY(-33%);color:var(--dim);font-size:14px;pointer-events:none}
+.s-kbd{position:absolute;right:36px;top:50%;transform:translateY(-33%);font-size:11px;color:var(--dim);border:1px solid var(--line);padding:2px 6px;border-radius:5px;background:var(--bg);pointer-events:none}
 
-/* 分组 */
-.section{margin-bottom:34px}
-.section-head{
-  display:flex;align-items:center;gap:10px;margin-bottom:14px;
-  cursor:pointer;user-select:none;padding:2px 0;
-}
-.section-title{font-size:14px;font-weight:600;color:var(--text)}
-.section-count{
-  font-size:11px;color:var(--text-dim);background:var(--card);
-  border:1px solid var(--border);padding:2px 8px;border-radius:20px;
-}
-.section-arrow{margin-left:auto;color:var(--text-dim);font-size:12px;transition:transform .2s}
-.section.collapsed .section-arrow{transform:rotate(-90deg)}
-.section.collapsed .grid{display:none}
-
-/* 卡片网格 */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+/* ---------- 内容区 ---------- */
+.content{padding:20px 22px 60px;flex:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:13px}
 .card{
-  display:flex;align-items:center;gap:12px;padding:14px 15px;
-  background:var(--card);border:1px solid var(--border);border-radius:13px;
-  text-decoration:none;color:inherit;transition:all .18s;position:relative;overflow:hidden;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:15px;display:flex;gap:12px;align-items:flex-start;
+  transition:all .18s;cursor:pointer;position:relative;
 }
-.card:hover{
-  background:var(--card-hover);border-color:var(--accent);
-  transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.18);
+.card:hover{background:var(--card2);border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+.card-ico{
+  width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;
+  background:linear-gradient(135deg,rgba(91,141,239,.18),rgba(124,91,255,.18));
+  color:var(--accent);overflow:hidden;
 }
-.card-icon{
-  width:36px;height:36px;border-radius:9px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:17px;font-weight:600;background:rgba(76,141,255,.13);color:var(--accent);
-}
+.card-ico img{width:100%;height:100%;object-fit:cover}
 .card-body{min-width:0;flex:1}
-.card-name{
-  font-size:14px;font-weight:500;white-space:nowrap;
-  overflow:hidden;text-overflow:ellipsis;
-}
+.card-title{font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px}
+.card-title span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .card-desc{
-  font-size:11.5px;color:var(--text-dim);margin-top:3px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-size:12px;color:var(--dim);margin-top:3px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.tag{
+  display:inline-block;font-size:10.5px;padding:1px 7px;border-radius:20px;
+  border:1px solid var(--line);color:var(--dim);margin-top:7px;
+}
+.badge-art{
+  font-size:10px;padding:1px 6px;border-radius:20px;flex-shrink:0;
+  background:rgba(124,91,255,.15);color:#a78bfa;border:1px solid rgba(124,91,255,.3);
 }
 
-/* 空状态 */
-.empty{text-align:center;padding:70px 20px;color:var(--text-dim);font-size:14px;display:none}
-.empty.show{display:block}
+/* ---------- 详情页 ---------- */
+.detail{max-width:760px;margin:0 auto}
+.detail-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:22px}
+.detail-ico{
+  width:56px;height:56px;border-radius:14px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600;
+  background:linear-gradient(135deg,rgba(91,141,239,.18),rgba(124,91,255,.18));color:var(--accent);
+}
+.detail h1{font-size:22px;font-weight:600;margin-bottom:5px;line-height:1.3}
+.detail-sub{font-size:13px;color:var(--dim)}
+.detail-meta{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;
+  padding-bottom:18px;border-bottom:1px solid var(--line);
+}
+.chip{
+  font-size:12px;padding:4px 10px;border-radius:8px;
+  background:var(--card);border:1px solid var(--line);color:var(--dim);
+}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:10px;
+  font-size:13.5px;font-weight:500;transition:all .16s;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;
+  box-shadow:0 3px 12px rgba(91,141,239,.25);
+}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-ghost{
+  background:var(--card);color:var(--text);border:1px solid var(--line);box-shadow:none;
+}
+.btn-ghost:hover{border-color:var(--accent);background:var(--card2)}
+.detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
 
-footer{text-align:center;color:var(--text-dim);font-size:12px;padding-top:20px}
+/* ---------- 文章正文 ---------- */
+.article{font-size:15px;line-height:1.85;color:var(--text)}
+.article h2{font-size:18px;font-weight:600;margin:30px 0 12px;padding-left:11px;border-left:3px solid var(--accent)}
+.article h3{font-size:15.5px;font-weight:600;margin:22px 0 9px;color:var(--text)}
+.article p{margin:12px 0;color:var(--text)}
+.article ul,.article ol{margin:12px 0 12px 22px;color:var(--text)}
+.article li{margin:6px 0}
+.article code{
+  background:var(--card2);padding:2px 6px;border-radius:5px;
+  font-size:13px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#a78bfa;
+}
+.article pre{
+  background:var(--bg2);border:1px solid var(--line);border-radius:10px;
+  padding:14px;overflow-x:auto;margin:14px 0;
+}
+.article pre code{background:none;padding:0;color:var(--text);font-size:12.5px;line-height:1.65}
+.article blockquote{
+  border-left:3px solid var(--accent);background:var(--card);
+  padding:10px 16px;margin:14px 0;border-radius:0 8px 8px 0;color:var(--dim);font-size:14px;
+}
+.article a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.article table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+.article th,.article td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+.article th{background:var(--card2);font-weight:600}
+.article hr{border:none;border-top:1px solid var(--line);margin:24px 0}
+.article strong{font-weight:600;color:var(--text)}
 
-@media(max-width:640px){
-  body{padding:0 14px 40px}
-  .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
-  .card{padding:12px}
-  .card-icon{width:32px;height:32px;font-size:15px}
+/* ---------- 空态 ---------- */
+.empty{text-align:center;padding:80px 20px;color:var(--dim)}
+.empty-ico{font-size:38px;margin-bottom:12px;opacity:.5}
+.empty-t{font-size:15px;margin-bottom:5px}
+.empty-s{font-size:13px;opacity:.75}
+
+/* ---------- 分组标题 ---------- */
+.group{margin-bottom:30px}
+.group-head{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.group-title{font-size:14px;font-weight:600}
+.group-desc{font-size:12px;color:var(--dim)}
+.group-n{font-size:11px;color:var(--dim);background:var(--card);border:1px solid var(--line);padding:1px 7px;border-radius:20px}
+
+/* ---------- 移动端 ---------- */
+.menu-btn{display:none}
+@media(max-width:860px){
+  .sidebar{
+    position:fixed;left:0;top:0;bottom:0;z-index:60;
+    transform:translateX(-100%);transition:transform .22s;box-shadow:var(--shadow);
+  }
+  .sidebar.open{transform:translateX(0)}
+  .menu-btn{display:flex}
+  .content{padding:16px 15px 50px}
+  .searchbar{padding:14px 15px 0}
+  .s-ico{left:29px}.s-kbd{right:29px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+  .card{padding:12px;gap:10px}
+  .card-ico{width:34px;height:34px;font-size:15px}
+  .topbar{padding:12px 15px}
+  .detail h1{font-size:19px}
+  .mask{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:55;display:none}
+  .mask.on{display:block}
 }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="layout">
 
-  <header>
-    <div class="logo"><span class="logo-dot"></span><span id="siteTitle">我的导航</span></div>
-    <div class="actions">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
+    <div id="navList"></div>
+    <div class="sidebar-foot">
       <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
+      <button class="icon-btn" id="homeBtn" title="回到首页">🏠</button>
     </div>
-  </header>
+  </aside>
+  <div class="mask" id="mask"></div>
 
-  <div class="search-box">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="search" placeholder="搜索站点名称或描述..." autocomplete="off">
-    <span class="kbd">/</span>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+    </header>
+    <div id="searchWrap"></div>
+    <main class="content" id="app"></main>
   </div>
-
-  <main id="app"></main>
-  <div class="empty" id="empty">没有找到匹配的站点</div>
-
-  <footer>Static Nav · Powered by Cloudflare</footer>
 </div>
 
 <script>
-/* =========================================================
-   配置区：只改这里就能维护整个站点
-   格式：{ name: 显示名, url: 链接, desc: 描述, icon: 可选emoji或文字 }
-   ========================================================= */
-const SITE_TITLE = "我的导航";
+/* =====================================================================
+   数据区 —— 只改这里
+   ---------------------------------------------------------------------
+   两类内容：
+   1) type:"link"   链接：点击后进入「链接说明页」（介绍这个网站做什么）
+   2) type:"article" 文章：点击后进入「文章阅读页」（正文支持 Markdown 子集）
 
-const DATA = [
+   公共字段：
+     title     标题
+     desc      一句话简介（卡片上显示）
+     group     所属分组
+     tags      标签数组，可选
+     icon      图标：emoji / 单字母 / 或图片 URL
+     star      可选，true 表示标记为推荐
+
+   链接额外字段：
+     url       实际跳转地址
+
+   文章额外字段：
+     date      日期，如 "2026-10-30"
+     read      预计阅读分钟数，可选
+     body      正文（反引号包裹，支持 # ## ### 标题、- 列表、`代码`、> 引用、表格）
+   ===================================================================== */
+
+const SITE = {
+  title: "聚合导航",
+  subtitle: "链接与文章，一处归档",
+  author: "常一锦"
+};
+
+const ITEMS = [
+
+  /* ======================= 常用工具 ======================= */
   {
-    group: "常用",
-    items: [
-      { name: "GitHub",  url: "https://github.com",      desc: "代码托管",     icon: "G" },
-      { name: "Google",  url: "https://google.com",      desc: "搜索引擎",     icon: "🔍" },
-      { name: "YouTube", url: "https://youtube.com",     desc: "视频平台",     icon: "▶" },
-      { name: "ChatGPT", url: "https://chat.openai.com", desc: "AI 对话",      icon: "🤖" }
-    ]
+    type: "link", group: "常用工具",
+    title: "GitHub", url: "https://github.com",
+    desc: "全球最大的代码托管平台，仓库、Issue、Actions 一应俱全",
+    tags: ["代码", "协作"], icon: "🐙", star: true
   },
   {
-    group: "开发工具",
-    items: [
-      { name: "MDN",        url: "https://developer.mozilla.org", desc: "Web 文档",    icon: "📖" },
-      { name: "Stack Overflow", url: "https://stackoverflow.com", desc: "技术问答",    icon: "S" },
-      { name: "Can I Use",  url: "https://caniuse.com",          desc: "兼容性查询",  icon: "C" },
-      { name: "Vercel",     url: "https://vercel.com",           desc: "前端部署",    icon: "▲" },
-      { name: "Cloudflare", url: "https://dash.cloudflare.com",  desc: "CDN / DNS",   icon: "☁" }
-    ]
+    type: "link", group: "常用工具",
+    title: "Cloudflare", url: "https://dash.cloudflare.com",
+    desc: "CDN、DNS、Pages 静态托管，免费额度足够个人项目用",
+    tags: ["CDN", "部署"], icon: "☁️", star: true
   },
   {
-    group: "AI 工具",
-    items: [
-      { name: "Claude",    url: "https://claude.ai",      desc: "AI 助手",       icon: "✳" },
-      { name: "Gemini",    url: "https://gemini.google.com", desc: "Google AI",   icon: "✦" },
-      { name: "HuggingFace", url: "https://huggingface.co", desc: "模型社区",     icon: "🤗" }
-    ]
+    type: "link", group: "常用工具",
+    title: "MDN 文档", url: "https://developer.mozilla.org",
+    desc: "Web 技术权威文档，HTML / CSS / JS 查询首选",
+    tags: ["文档"], icon: "📖"
   },
   {
-    group: "我的服务",
-    items: [
-      { name: "API 后台", url: "https://example.com",  desc: "管理面板",  icon: "⚙" },
-      { name: "监控面板", url: "https://status.example.com", desc: "服务状态", icon: "📊" }
-    ]
+    type: "link", group: "常用工具",
+    title: "Can I Use", url: "https://caniuse.com",
+    desc: "查询浏览器对前端特性的兼容性支持情况",
+    tags: ["兼容性"], icon: "✅"
+  },
+
+  /* ======================= AI 工具 ======================= */
+  {
+    type: "link", group: "AI 工具",
+    title: "Claude", url: "https://claude.ai",
+    desc: "Anthropic 出品，长文本理解与代码能力突出",
+    tags: ["对话", "编程"], icon: "✳️", star: true
+  },
+  {
+    type: "link", group: "AI 工具",
+    title: "ChatGPT", url: "https://chat.openai.com",
+    desc: "OpenAI 的对话助手，通用问答与创作",
+    tags: ["对话"], icon: "🤖"
+  },
+  {
+    type: "link", group: "AI 工具",
+    title: "Hugging Face", url: "https://huggingface.co",
+    desc: "开源模型与数据集社区，模型权重下载站",
+    tags: ["模型"], icon: "🤗"
+  },
+
+  /* ======================= 我的服务 ======================= */
+  {
+    type: "link", group: "我的服务",
+    title: "Sub2API 控制台", url: "https://api.juheai.shop",
+    desc: "API 网关后台，管理账号、分组、密钥与用量",
+    tags: ["自建", "网关"], icon: "⚙️", star: true
+  },
+  {
+    type: "link", group: "我的服务",
+    title: "节点订阅", url: "https://juheai.shop",
+    desc: "代理订阅与节点管理入口",
+    tags: ["自建", "网络"], icon: "🌐"
+  },
+
+  /* ======================= 文章 ======================= */
+  {
+    type: "article", group: "笔记",
+    title: "Ubuntu 服务器初始化清单",
+    desc: "新机器到手后的十几项必做配置，从 SSH 加固到防火墙",
+    tags: ["运维", "Linux"], icon: "📝",
+    date: "2026-10-30", read: 6,
+    body: `
+## 一、创建普通用户
+
+拿到一台新机器，第一件事不是装软件，而是别再用 root 裸奔。
+
+\`\`\`bash
+adduser deploy
+usermod -aG sudo deploy
+\`\`\`
+
+然后把你的公钥放进 \`~/.ssh/authorized_keys\`，确认能用密钥登录后再往下走。
+
+## 二、SSH 加固
+
+编辑 \`/etc/ssh/sshd_config\`：
+
+- \`PermitRootLogin no\` —— 禁止 root 直接登录
+- \`PasswordAuthentication no\` —— 关闭密码登录
+- \`Port 22\` —— 可改端口，但别指望这是安全措施
+
+改完 **先别断开当前连接**，另开一个窗口测试能登录，再重启服务：
+
+\`\`\`bash
+systemctl restart ssh
+\`\`\`
+
+> 这一步最容易被自己锁在门外。永远保持一个已登录的窗口开着。
+
+## 三、防火墙
+
+只用 ufw 就够：
+
+\`\`\`bash
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow 22/tcp
+ufw enable
+\`\`\`
+
+## 四、时间同步与自动更新
+
+\`\`\`bash
+timedatectl set-timezone Asia/Shanghai
+apt install -y unattended-upgrades
+dpkg-reconfigure --priority=low unattended-upgrades
+\`\`\`
+
+## 五、常用检查清单
+
+| 项目 | 命令 |
+|---|---|
+| 磁盘 | \`df -h\` |
+| 内存 | \`free -h\` |
+| 端口监听 | \`ss -tlnp\` |
+| 系统负载 | \`uptime\` |
+
+做完这些，机器才算能安心放出去。
+`
+  },
+  {
+    type: "article", group: "笔记",
+    title: "Docker Compose 常见坑位记录",
+    desc: "容器起不来、端口不通、数据丢失，这些坑我都踩过",
+    tags: ["Docker"], icon: "🐳",
+    date: "2026-10-28", read: 5,
+    body: `
+## 容器起来了但端口不通
+
+八成是监听地址的问题。程序在容器里绑了 \`127.0.0.1\`，外面自然访问不到。
+
+检查容器内：
+
+\`\`\`bash
+docker exec -it <容器> ss -tlnp
+\`\`\`
+
+如果看到 \`127.0.0.1:8080\` 而不是 \`0.0.0.0:8080\`，就是这个原因。改程序的监听配置，或者在 compose 里加：
+
+\`\`\`yaml
+command: --bind 0.0.0.0
+\`\`\`
+
+## 数据卷写成了相对路径
+
+\`\`\`yaml
+volumes:
+  - ./data:/app/data   # 相对当前 compose 文件位置
+  - /opt/app/data:/app/data  # 绝对路径，推荐
+\`\`\`
+
+用相对路径时，如果你在别的目录执行 \`docker compose up\`，数据会写到别处，看起来像"数据丢了"。
+
+## heredoc 通过 SSH 传过去会失效
+
+在本地写好的 SQL 用 heredoc 塞进 \`docker exec\`，经常会静默失败——命令返回 0，但什么都没执行。
+
+**改用管道或 \`-c\` 参数**：
+
+\`\`\`bash
+# 不可靠
+docker exec -i pg psql -U user -d db <<'SQL'
+INSERT ...
+SQL
+
+# 可靠
+docker exec pg psql -U user -d db -c "INSERT ..."
+\`\`\`
+
+## 重启后配置没生效
+
+Docker 的配置有些是读进内存的，改完文件必须重启：
+
+\`\`\`bash
+docker compose restart <服务>
+\`\`\`
+
+**注意别用后台方式执行**，SSH 断开会把重启动作杀掉，服务可能停在半路。
+`
+  },
+  {
+    type: "article", group: "笔记",
+    title: "为什么静态站要放 Cloudflare Pages",
+    desc: "免费、免运维、自动 HTTPS，个人项目的性价比之选",
+    tags: ["部署", "Cloudflare"], icon: "🚀",
+    date: "2026-10-25", read: 3,
+    body: `
+## 免费额度够用
+
+个人站点、文档、博客，Pages 的免费额度基本用不完：
+
+- 每月 500 次构建
+- 无限带宽（合理使用）
+- 无限请求数
+- 自动签发 HTTPS 证书
+
+## 部署流程极简
+
+连上 GitHub 仓库后，每次 push 自动构建发布。配置全部留空即可：
+
+| 配置项 | 填什么 |
+|---|---|
+| Framework preset | None |
+| Build command | 留空 |
+| Output directory | 留空或 \`/\` |
+
+**最容易犯错的地方**就是这里——填了构建命令反而会失败，纯静态文件不需要构建。
+
+## 自定义域名要注意一点
+
+Cloudflare Pages 的自定义域名，**必须和 Pages 项目在同一个 Cloudflare 账户**。
+
+如果你的域名在 A 账户、项目建在 B 账户，是绑不上的。这时候有两个选择：
+
+1. 把项目建到有域名的那个账户（推荐，不动 DNS）
+2. 把域名迁到项目所在的账户（要改 NS，麻烦）
+
+## 只加 CNAME 是不够的
+
+很多人以为在 DNS 里加一条 \`CNAME www → xxx.pages.dev\` 就能访问。
+
+实际上 Pages 会返回 **530** 错误——它只认「已经绑定到项目」的域名。必须先在 Pages 后台点「Add custom domain」，DNS 才会生效。
+`
   }
 ];
 
-/* ================== 以下为逻辑，一般不用改 ================== */
+/* =====================================================================
+   以下为逻辑，一般不用改动
+   ===================================================================== */
 
-const app = document.getElementById("app");
-const emptyEl = document.getElementById("empty");
-const searchEl = document.getElementById("search");
-const themeBtn = document.getElementById("themeBtn");
+const state = { theme: localStorage.getItem("nav-theme") || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"), q: "" };
 
-document.getElementById("siteTitle").textContent = SITE_TITLE;
-document.title = SITE_TITLE;
+const $ = (s) => document.querySelector(s);
+const app = $("#app"), navList = $("#navList"), crumb = $("#crumb"), searchWrap = $("#searchWrap");
 
-// ---------- 主题 ----------
+/* ---------- 工具 ---------- */
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+function iconHtml(item, cls) {
+  const ic = item.icon || "";
+  if (/^https?:\/\//.test(ic)) return '<div class="' + cls + '"><img src="' + esc(ic) + '" alt="" loading="lazy"></div>';
+  const txt = ic || (item.title || "?").charAt(0).toUpperCase();
+  return '<div class="' + cls + '">' + esc(txt) + "</div>";
+}
+
+/* 迷你 Markdown 渲染（标题/列表/代码/引用/表格/粗体/链接） */
+function md(src) {
+  const lines = String(src || "").replace(/\r/g, "").split("\n");
+  let out = [], i = 0, inCode = false, codeBuf = [], listType = null, tableBuf = [];
+
+  const flushList = () => { if (listType) { out.push("</" + listType + ">"); listType = null; } };
+  const flushTable = () => {
+    if (!tableBuf.length) return;
+    const rows = tableBuf.filter(r => !/^\s*\|?[\s:-]+\|/.test(r));
+    let h = "<table>";
+    rows.forEach((r, idx) => {
+      const cells = r.split("|").slice(1, -1).map(c => c.trim());
+      h += "<tr>" + cells.map(c => (idx === 0 ? "<th>" : "<td>") + inline(c) + (idx === 0 ? "</th>" : "</td>")).join("") + "</tr>";
+    });
+    out.push(h + "</table>");
+    tableBuf = [];
+  };
+  const inline = (t) => esc(t)
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\`([^\`]+)\`/g, "<code>$1</code>")
+    .replace(/\[([^\]]+)\]\((https?:[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+  for (; i < lines.length; i++) {
+    const ln = lines[i];
+    if (/^\s*\`\`\`/.test(ln)) {
+      if (!inCode) { inCode = true; codeBuf = []; flushList(); flushTable(); }
+      else { out.push("<pre><code>" + esc(codeBuf.join("\n")) + "</code></pre>"); inCode = false; }
+      continue;
+    }
+    if (inCode) { codeBuf.push(ln); continue; }
+
+    if (/^\s*\|.*\|\s*$/.test(ln)) { flushList(); tableBuf.push(ln); continue; }
+    else if (tableBuf.length) flushTable();
+
+    let m;
+    if ((m = ln.match(/^###\s+(.*)/))) { flushList(); out.push("<h3>" + inline(m[1]) + "</h3>"); continue; }
+    if ((m = ln.match(/^##\s+(.*)/))) { flushList(); out.push("<h2>" + inline(m[1]) + "</h2>"); continue; }
+    if ((m = ln.match(/^#\s+(.*)/))) { flushList(); out.push("<h2>" + inline(m[1]) + "</h2>"); continue; }
+    if ((m = ln.match(/^>\s?(.*)/))) { flushList(); out.push("<blockquote>" + inline(m[1]) + "</blockquote>"); continue; }
+    if (/^---+s*$/.test(ln)) { flushList(); out.push("<hr>"); continue; }
+    if ((m = ln.match(/^\s*[-*]\s+(.*)/))) {
+      if (listType !== "ul") { flushList(); out.push("<ul>"); listType = "ul"; }
+      out.push("<li>" + inline(m[1]) + "</li>"); continue;
+    }
+    if ((m = ln.match(/^\s*\d+\.\s+(.*)/))) {
+      if (listType !== "ol") { flushList(); out.push("<ol>"); listType = "ol"; }
+      out.push("<li>" + inline(m[1]) + "</li>"); continue;
+    }
+    flushList();
+    if (ln.trim() === "") continue;
+    out.push("<p>" + inline(ln) + "</p>");
+  }
+  flushList(); flushTable();
+  if (inCode && codeBuf.length) out.push("<pre><code>" + esc(codeBuf.join("\n")) + "</code></pre>");
+  return out.join("");
+}
+
+/* ---------- 主题 ---------- */
 function applyTheme(t) {
   document.documentElement.setAttribute("data-theme", t);
-  themeBtn.textContent = t === "light" ? "☀️" : "🌙";
+  state.theme = t;
   localStorage.setItem("nav-theme", t);
-}
-const savedTheme = localStorage.getItem("nav-theme")
-  || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-applyTheme(savedTheme);
-themeBtn.addEventListener("click", () => {
-  const cur = document.documentElement.getAttribute("data-theme");
-  applyTheme(cur === "light" ? "dark" : "light");
-});
-
-// ---------- 折叠状态 ----------
-const collapsed = JSON.parse(localStorage.getItem("nav-collapsed") || "[]");
-function saveCollapsed() {
-  localStorage.setItem("nav-collapsed", JSON.stringify(collapsed));
+  const b = $("#themeBtn");
+  if (b) b.textContent = t === "light" ? "☀️" : "🌙";
 }
 
-// ---------- 渲染 ----------
-function render(keyword = "") {
-  const kw = keyword.trim().toLowerCase();
-  app.innerHTML = "";
-  let total = 0;
+/* ---------- 数据整理 ---------- */
+const GROUPS = [...new Set(ITEMS.map(i => i.group))];
+const GROUP_META = {
+  "常用工具": { icon: "🧰" },
+  "AI 工具": { icon: "🤖" },
+  "我的服务": { icon: "⚙️" },
+  "笔记": { icon: "📚" }
+};
 
-  DATA.forEach((group) => {
-    const matched = group.items.filter((it) => {
-      if (!kw) return true;
-      return (it.name + " " + (it.desc || "") + " " + it.url).toLowerCase().includes(kw);
-    });
-    if (matched.length === 0) return;
-    total += matched.length;
+function countsByGroup() {
+  const m = {};
+  GROUPS.forEach(g => m[g] = ITEMS.filter(i => i.group === g).length);
+  return m;
+}
 
-    const isCollapsed = !kw && collapsed.includes(group.group);
-
-    const section = document.createElement("section");
-    section.className = "section" + (isCollapsed ? " collapsed" : "");
-
-    const head = document.createElement("div");
-    head.className = "section-head";
-    head.innerHTML =
-      '<span class="section-title">' + esc(group.group) + '</span>' +
-      '<span class="section-count">' + matched.length + '</span>' +
-      '<span class="section-arrow">▼</span>';
-
-    head.addEventListener("click", () => {
-      section.classList.toggle("collapsed");
-      const i = collapsed.indexOf(group.group);
-      if (section.classList.contains("collapsed")) {
-        if (i === -1) collapsed.push(group.group);
-      } else if (i !== -1) {
-        collapsed.splice(i, 1);
-      }
-      saveCollapsed();
-    });
-
-    const grid = document.createElement("div");
-    grid.className = "grid";
-
-    matched.forEach((it) => {
-      const a = document.createElement("a");
-      a.className = "card";
-      a.href = it.url;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-
-      const icon = document.createElement("div");
-      icon.className = "card-icon";
-      icon.textContent = it.icon || it.name.charAt(0).toUpperCase();
-
-      const body = document.createElement("div");
-      body.className = "card-body";
-      body.innerHTML =
-        '<div class="card-name">' + esc(it.name) + '</div>' +
-        (it.desc ? '<div class="card-desc">' + esc(it.desc) + '</div>' : '');
-
-      a.appendChild(icon);
-      a.appendChild(body);
-      grid.appendChild(a);
-    });
-
-    section.appendChild(head);
-    section.appendChild(grid);
-    app.appendChild(section);
+/* ---------- 侧栏 ---------- */
+function renderSidebar(active) {
+  const c = countsByGroup();
+  let h = '<div class="nav-label">全部</div>';
+  h += '<button class="nav-item' + (active === "all" ? " active" : "") + '" data-go="all">' +
+       '<span class="nav-ico">📌</span><span>全部内容</span><span class="nav-count">' + ITEMS.length + "</span></button>";
+  h += '<div class="nav-label">分组</div>';
+  GROUPS.forEach(g => {
+    const ico = (GROUP_META[g] && GROUP_META[g].icon) || "📁";
+    h += '<button class="nav-item' + (active === g ? " active" : "") + '" data-go="' + esc(g) + '">' +
+         '<span class="nav-ico">' + ico + '</span><span>' + esc(g) + '</span><span class="nav-count">' + c[g] + "</span></button>";
   });
-
-  emptyEl.classList.toggle("show", total === 0);
+  navList.innerHTML = h;
 }
 
-function esc(s) {
-  return String(s).replace(/[&<>"']/g, (c) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
-  }[c]));
+/* ---------- 卡片 ---------- */
+function cardHtml(it, idx) {
+  const isArt = it.type === "article";
+  return '<div class="card" data-idx="' + idx + '">' +
+    iconHtml(it, "card-ico") +
+    '<div class="card-body">' +
+      '<div class="card-title">' +
+        '<span>' + esc(it.title) + '</span>' +
+        (isArt ? '<span class="badge-art">文章</span>' : "") +
+      "</div>" +
+      (it.desc ? '<div class="card-desc">' + esc(it.desc) + "</div>" : "") +
+      (it.tags ? '<div class="tag">' + esc(it.tags.join(" · ")) + "</div>" : "") +
+    "</div>" +
+  "</div>";
 }
 
-render();
+/* ---------- 首页 ---------- */
+function renderHome(group) {
+  searchWrap.innerHTML = '<div class="searchbar"><span class="s-ico">🔍</span>' +
+    '<input id="q" type="text" placeholder="搜索标题、简介或标签…" autocomplete="off" value="' + esc(state.q) + '">' +
+    '<span class="s-kbd">/</span></div>';
 
-// ---------- 搜索 ----------
-searchEl.addEventListener("input", (e) => render(e.target.value));
-
-// ---------- 快捷键 ----------
-document.addEventListener("keydown", (e) => {
-  if (e.key === "/" && document.activeElement !== searchEl) {
-    e.preventDefault();
-    searchEl.focus();
+  let list = ITEMS;
+  if (group && group !== "all") list = list.filter(i => i.group === group);
+  if (state.q.trim()) {
+    const k = state.q.trim().toLowerCase();
+    list = list.filter(i => (i.title + " " + (i.desc || "") + " " + (i.tags || []).join(" ") + " " + (i.url || "")).toLowerCase().includes(k));
   }
-  if (e.key === "Escape") {
-    searchEl.value = "";
-    render();
-    searchEl.blur();
+
+  if (!list.length) {
+    app.innerHTML = '<div class="empty"><div class="empty-ico">🔍</div><div class="empty-t">没有找到匹配的内容</div><div class="empty-s">试试换个关键词</div></div>';
+    return;
+  }
+
+  let h = "";
+  if (group && group !== "all") {
+    const meta = GROUP_META[group] || {};
+    h += '<div class="group"><div class="group-head"><span class="group-title">' + esc(group) + "</span>" +
+         '<span class="group-n">' + list.length + "</span></div>" +
+         '<div class="grid">' + list.map(cardHtml).join("") + "</div></div>";
+  } else {
+    GROUPS.forEach(g => {
+      const sub = list.filter(i => i.group === g);
+      if (!sub.length) return;
+      const meta = GROUP_META[g] || {};
+      h += '<div class="group"><div class="group-head">' +
+           '<span class="group-title">' + (meta.icon || "📁") + " " + esc(g) + "</span>" +
+           '<span class="group-n">' + sub.length + "</span></div>" +
+           '<div class="grid">' + sub.map(cardHtml).join("") + "</div></div>";
+    });
+  }
+  app.innerHTML = h;
+
+  const q = $("#q");
+  if (q) {
+    q.addEventListener("input", (e) => { state.q = e.target.value; renderHome(group); const n = $("#q"); if (n) { n.focus(); n.setSelectionRange(n.value.length, n.value.length); } });
+  }
+}
+
+/* ---------- 详情页 ---------- */
+function renderDetail(idx) {
+  const it = ITEMS[idx];
+  if (!it) { location.hash = ""; return; }
+  searchWrap.innerHTML = "";
+  const isArt = it.type === "article";
+
+  let h = '<div class="detail">';
+  h += '<div class="detail-head">' + iconHtml(it, "detail-ico") +
+       "<div><h1>" + esc(it.title) + "</h1>" +
+       '<div class="detail-sub">' + esc(it.desc || "") + "</div></div></div>";
+
+  h += '<div class="detail-meta">';
+  h += '<span class="chip">📁 ' + esc(it.group) + "</span>";
+  if (it.tags) it.tags.forEach(t => h += '<span class="chip">' + esc(t) + "</span>");
+  if (isArt && it.date) h += '<span class="chip">🗓 ' + esc(it.date) + "</span>";
+  if (isArt && it.read) h += '<span class="chip">⏱ 约 ' + it.read + " 分钟</span>";
+  h += "</div>";
+
+  if (!isArt) {
+    h += '<div class="detail-actions">' +
+         '<a class="btn" href="' + esc(it.url) + '" target="_blank" rel="noopener">🚀 打开网站</a>' +
+         '<button class="btn btn-ghost" data-copy="' + esc(it.url) + '">📋 复制链接</button>' +
+         '<button class="btn btn-ghost" data-back>← 返回</button></div>';
+    h += '<div class="article"><h2>关于这个网站</h2><p>' + esc(it.desc || "") + "</p>";
+    h += "<p>访问地址：<code>" + esc(it.url) + "</code></p>";
+    if (it.tags) h += "<p>标签：" + esc(it.tags.join(" / ")) + "</p>";
+    h += "</div>";
+  } else {
+    h += '<div class="detail-actions"><button class="btn btn-ghost" data-back>← 返回</button></div>';
+    h += '<div class="article">' + md(it.body || "") + "</div>";
+  }
+  h += "</div>";
+  app.innerHTML = h;
+
+  crumb.innerHTML = '<span>首页</span> / <b>' + esc(it.title) + "</b>";
+  window.scrollTo(0, 0);
+}
+
+/* ---------- 路由 ---------- */
+function route() {
+  const h = location.hash.replace(/^#/, "");
+  if (h.startsWith("/item/")) {
+    renderDetail(parseInt(h.slice(6), 10));
+    return;
+  }
+  const group = h.startsWith("/g/") ? decodeURIComponent(h.slice(3)) : "all";
+  renderSidebar(group);
+  crumb.innerHTML = group === "all" ? "<b>全部内容</b>" : "<b>" + esc(group) + "</b>";
+  renderHome(group);
+}
+
+/* ---------- 事件 ---------- */
+document.addEventListener("click", (e) => {
+  const go = e.target.closest("[data-go]");
+  if (go) {
+    const g = go.dataset.go;
+    location.hash = g === "all" ? "" : "/g/" + encodeURIComponent(g);
+    $("#sidebar").classList.remove("open");
+    $("#mask").classList.remove("on");
+    return;
+  }
+  const card = e.target.closest(".card");
+  if (card) { location.hash = "/item/" + card.dataset.idx; return; }
+
+  if (e.target.closest("[data-back]")) { history.back(); return; }
+
+  const copy = e.target.closest("[data-copy]");
+  if (copy) {
+    navigator.clipboard.writeText(copy.dataset.copy).then(() => {
+      const old = copy.textContent;
+      copy.textContent = "✅ 已复制";
+      setTimeout(() => copy.textContent = old, 1500);
+    });
   }
 });
+
+$("#themeBtn").addEventListener("click", () => applyTheme(state.theme === "light" ? "dark" : "light"));
+$("#homeBtn").addEventListener("click", () => { location.hash = ""; });
+$("#menuBtn").addEventListener("click", () => {
+  $("#sidebar").classList.toggle("open");
+  $("#mask").classList.toggle("on");
+});
+$("#mask").addEventListener("click", () => {
+  $("#sidebar").classList.remove("open");
+  $("#mask").classList.remove("on");
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "/" && !/input|textarea/i.test(document.activeElement.tagName)) {
+    e.preventDefault();
+    const q = $("#q"); if (q) q.focus();
+  }
+  if (e.key === "Escape") { state.q = ""; route(); }
+});
+
+window.addEventListener("hashchange", route);
+
+/* ---------- 启动 ---------- */
+applyTheme(state.theme);
+route();
 </script>
 </body>
 </html>
