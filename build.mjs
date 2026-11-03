@@ -40,12 +40,18 @@ function md(src) {
     if (!tableBuf.length) return;
     const rows = tableBuf.filter(r => !/^\s*\|?[\s:\-|]+\|?\s*$/.test(r));
     if (!rows.length) { tableBuf = []; return; }
+    const parsed = rows.map(r => r.replace(/^\s*\|/, "").replace(/\|\s*$/, "").split("|").map(c => c.trim()));
+    const heads = parsed[0] || [];
     let h = "";
-    rows.forEach((r, idx) => {
-      const cells = r.replace(/^\s*\|/, "").replace(/\|\s*$/, "").split("|").map(c => c.trim());
-      const row = "<tr>" + cells.map(c => (idx === 0 ? "<th>" : "<td>") + inline(c) + (idx === 0 ? "</th>" : "</td>")).join("") + "</tr>";
-      if (idx === 0) h += "<thead>" + row + "</thead><tbody>";
-      else h += row;
+    parsed.forEach((cells, idx) => {
+      if (idx === 0) {
+        h += "<thead><tr>" + cells.map(c => "<th>" + inline(c) + "</th>").join("") + "</tr></thead><tbody>";
+      } else {
+        h += "<tr>" + cells.map((c, ci) => {
+          const th = heads[ci] ? heads[ci].replace(/"/g, "&quot;") : "";
+          return '<td data-th="' + th + '">' + inline(c) + "</td>";
+        }).join("") + "</tr>";
+      }
     });
     out.push('<div class="table-wrap"><table>' + h + "</tbody></table></div>");
     tableBuf = [];

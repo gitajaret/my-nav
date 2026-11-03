@@ -297,7 +297,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   background:linear-gradient(180deg,var(--accent),var(--accent-2))}
 
 /* 表格 */
-.table-wrap{margin:22px 0;border-radius:10px;overflow:auto;border:1px solid var(--line);
+.table-wrap{margin:22px 0;border-radius:10px;overflow:hidden;border:1px solid var(--line);
   box-shadow:0 1px 2px rgba(0,0,0,.03)}
 .article table{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px;line-height:1.6}
 .article th{background:linear-gradient(180deg,var(--card-hi),var(--card));padding:12px 16px;text-align:left;
@@ -421,6 +421,22 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 }
 
 /* ============ 移动端加固 ============ */
+@media(max-width:640px){
+  /* 表格卡片化：每行变一张小卡，彻底告别左右滑动 */
+  .table-wrap{border:none;box-shadow:none;background:transparent;overflow:visible}
+  .article table{display:block;width:100%;font-size:13.5px}
+  .article thead{display:none}
+  .article tbody{display:block}
+  .article tbody tr{display:block;background:var(--card);border:1px solid var(--line);
+    border-radius:9px;margin-bottom:9px;overflow:hidden}
+  .article tbody tr:nth-child(even) td{background:transparent}
+  .article td{display:flex;gap:10px;padding:9px 13px;border-bottom:1px solid var(--line);
+    align-items:flex-start;line-height:1.6;word-break:break-word}
+  .article tr td:last-child{border-bottom:none}
+  .article td::before{content:attr(data-th);flex:0 0 5.2em;color:var(--text-3);font-size:12px;
+    font-weight:600;line-height:1.6}
+  .article td:empty{display:none}
+}
 html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:860px){
   /* 长英文/URL 不撑破容器 */
@@ -429,7 +445,7 @@ html,body{max-width:100%;overflow-x:hidden}
   /* 搜索框在窄屏别被键盘按钮挡住 */
   .searchbar input{font-size:16px} /* iOS 输入框 <16px 会强制放大页面 */
   /* 表格横向滚动而不是撑破页面 */
-  .article table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .article table{display:table;width:100%}
   /* 代码块横向滚动 */
   .article pre{overflow-x:auto;-webkit-overflow-scrolling:touch}
   /* 标签不换行撑破 */
