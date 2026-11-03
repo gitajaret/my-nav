@@ -28,15 +28,6 @@
   },
   {
     "idx": 3,
-    "dir": "link",
-    "slug": "free-models",
-    "url": "link/free-models.html",
-    "title": "免费模型网站汇总",
-    "group": "网站链接",
-    "type": "link"
-  },
-  {
-    "idx": 4,
     "dir": "tutorial",
     "slug": "step1-speedup",
     "url": "tutorial/step1-speedup.html",
@@ -45,7 +36,7 @@
     "type": "link"
   },
   {
-    "idx": 5,
+    "idx": 4,
     "dir": "tutorial",
     "slug": "step2-quickstart",
     "url": "tutorial/step2-quickstart.html",
@@ -54,7 +45,7 @@
     "type": "link"
   },
   {
-    "idx": 6,
+    "idx": 5,
     "dir": "tutorial",
     "slug": "step3-software",
     "url": "tutorial/step3-software.html",
@@ -63,7 +54,7 @@
     "type": "link"
   },
   {
-    "idx": 7,
+    "idx": 6,
     "dir": "tutorial",
     "slug": "step4-fallback",
     "url": "tutorial/step4-fallback.html",
@@ -72,7 +63,7 @@
     "type": "link"
   },
   {
-    "idx": 8,
+    "idx": 7,
     "dir": "faq",
     "slug": "timeout",
     "url": "faq/timeout.html",
@@ -81,7 +72,7 @@
     "type": "article"
   },
   {
-    "idx": 9,
+    "idx": 8,
     "dir": "faq",
     "slug": "auth-401",
     "url": "faq/auth-401.html",
@@ -90,7 +81,7 @@
     "type": "article"
   },
   {
-    "idx": 10,
+    "idx": 9,
     "dir": "faq",
     "slug": "insufficient-balance",
     "url": "faq/insufficient-balance.html",
@@ -99,7 +90,7 @@
     "type": "article"
   },
   {
-    "idx": 11,
+    "idx": 10,
     "dir": "faq",
     "slug": "model-not-found",
     "url": "faq/model-not-found.html",
@@ -108,7 +99,7 @@
     "type": "article"
   },
   {
-    "idx": 12,
+    "idx": 11,
     "dir": "faq",
     "slug": "rate-limit",
     "url": "faq/rate-limit.html",
@@ -117,7 +108,7 @@
     "type": "article"
   },
   {
-    "idx": 13,
+    "idx": 12,
     "dir": "faq",
     "slug": "content-blocked",
     "url": "faq/content-blocked.html",
@@ -126,7 +117,7 @@
     "type": "article"
   },
   {
-    "idx": 14,
+    "idx": 13,
     "dir": "faq",
     "slug": "stream-broken",
     "url": "faq/stream-broken.html",
