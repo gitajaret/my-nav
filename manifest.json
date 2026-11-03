@@ -1,0 +1,17 @@
+{
+  "name": "聚合导航",
+  "short_name": "聚合导航",
+  "description": "网站链接 · 使用教程 · 问题解答",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0d12",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

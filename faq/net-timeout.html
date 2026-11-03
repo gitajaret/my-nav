@@ -8,13 +8,27 @@
 <meta property="og:title" content="连不上 / 请求超时（timeout） - 聚合导航">
 <meta property="og:description" content="报 Request timed out、i/o timeout、连不上服务器时看这篇 —— 聚合导航">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="聚合导航">
+<meta property="og:image" content="https://juheaidh.pages.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="连不上 / 请求超时（timeout） - 聚合导航">
+<meta name="twitter:description" content="报 Request timed out、i/o timeout、连不上服务器时看这篇 —— 聚合导航">
+<meta name="twitter:image" content="https://juheaidh.pages.dev/og-image.png">
+<meta name="theme-color" content="#2563eb">
+
 <link rel="canonical" href="https://juheaidh.pages.dev/faq/net-timeout.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"连不上 / 请求超时（timeout）","description":"报 Request timed out、i/o timeout、连不上服务器时看这篇","url":"https://juheaidh.pages.dev/faq/net-timeout.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"聚合导航","url":"https://juheaidh.pages.dev/"},"author":{"@type":"Person","name":"常一锦"},"datePublished":"2026-11-03","dateModified":"2026-11-03","articleSection":"问题解答","keywords":"网络,最常见"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://juheaidh.pages.dev/"},{"@type":"ListItem","position":2,"name":"问题解答","item":"https://juheaidh.pages.dev/#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"},{"@type":"ListItem","position":3,"name":"连不上 / 请求超时（timeout）"}]}]}</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="manifest" href="../manifest.json">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
 <div class="progress" id="progress"></div>
 <div class="layout">
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar" id="sidebar" aria-label="侧边导航">
     <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
     <div id="navList">
       <a class="nav-item" href="../index.html">
@@ -23,19 +37,19 @@
       <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">3</span></a><a class="nav-item" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">17</span></a>
     </div>
     <div class="sidebar-foot">
-      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
-      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+      <button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换深色或浅色主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页" aria-label="回到首页">🏠</a>
     </div>
   </aside>
   <div class="mask" id="mask"></div>
   <div class="main">
     <header class="topbar">
-      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="打开菜单">☰</button>
       <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">问题解答</a><span class="sep">/</span><b>连不上 / 请求超时（timeout）</b></nav>
       <div class="spacer"></div>
-      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF" aria-label="打印或存为 PDF">🖨</button>
     </header>
-    <main class="content" id="app">
+    <main class="content" id="app" role="main">
 <div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 问题解答</div><h1>连不上 / 请求超时（timeout）</h1><div class="lead">报 Request timed out、i/o timeout、连不上服务器时看这篇</div><div class="article-meta"><span class="m">🗓 2026-11-03</span><span class="dot"></span><span class="m">⏱ 约 5 分钟</span><span class="dot"></span><span class="m">📑 12 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#三种常见原因" data-toc="三种常见原因" class="">三种常见原因</a><a href="#第一步-关掉梯子-最常见" data-toc="第一步-关掉梯子-最常见" class="">第一步：关掉梯子（最常见）</a><a href="#第二步-换网络" data-toc="第二步-换网络" class="">第二步：换网络</a><a href="#第三步-换-dns" data-toc="第三步-换-dns" class="">第三步：换 DNS</a><a href="#第四步-把我们的域名设为直连" data-toc="第四步-把我们的域名设为直连" class="">第四步：把我们的域名设为直连</a><a href="#必须用梯子怎么办" data-toc="必须用梯子怎么办" class="">必须用梯子怎么办</a><a href="#第五步-测一下延迟" data-toc="第五步-测一下延迟" class="">第五步：测一下延迟</a><a href="#超时-vs-拒绝-怎么区分" data-toc="超时-vs-拒绝-怎么区分" class="">超时 vs 拒绝 怎么区分</a><a href="#完整排查流程" data-toc="完整排查流程" class="">完整排查流程</a><a href="#联系我们时提供" data-toc="联系我们时提供" class="">联系我们时提供</a></div></details><article class="article" id="articleBody"><h2 id="报错长这样">报错长这样</h2><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-copycode="1">📋 复制</button></div><pre><code>Request timed out
 dial tcp: i/o timeout
 context deadline exceeded
@@ -57,7 +71,7 @@ macOS：打开终端 → 输入 ping api.juheai.shop
     </main>
   </div>
 </div>
-<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<button class="to-top" id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
 <div class="toast" id="toast"></div>
 <script src="../assets/app.js"></script>
 </body>

@@ -8,13 +8,27 @@
 <meta property="og:title" content="页面不存在 - 聚合导航">
 <meta property="og:description" content="你访问的页面不存在，请回到首页查看全部内容。">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="聚合导航">
+<meta property="og:image" content="https://juheaidh.pages.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="页面不存在 - 聚合导航">
+<meta name="twitter:description" content="你访问的页面不存在，请回到首页查看全部内容。">
+<meta name="twitter:image" content="https://juheaidh.pages.dev/og-image.png">
+<meta name="theme-color" content="#2563eb">
+<meta name="robots" content="noindex,follow">
 
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <div class="progress" id="progress"></div>
 <div class="layout">
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar" id="sidebar" aria-label="侧边导航">
     <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
     <div id="navList">
       <a class="nav-item on" href="index.html">
@@ -23,24 +37,24 @@
       <a class="nav-item" href="index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">3</span></a><a class="nav-item" href="index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item" href="index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">17</span></a>
     </div>
     <div class="sidebar-foot">
-      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
-      <a class="icon-btn" href="index.html" title="回到首页">🏠</a>
+      <button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换深色或浅色主题">🌙</button>
+      <a class="icon-btn" href="index.html" title="回到首页" aria-label="回到首页">🏠</a>
     </div>
   </aside>
   <div class="mask" id="mask"></div>
   <div class="main">
     <header class="topbar">
-      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="打开菜单">☰</button>
       <nav class="crumb" id="crumb"><b>页面不存在</b></nav>
       <div class="spacer"></div>
-      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF" aria-label="打印或存为 PDF">🖨</button>
     </header>
-    <main class="content" id="app">
+    <main class="content" id="app" role="main">
 <div class="detail-wrap"><div class="empty" style="padding:80px 0"><div class="empty-ico">🧭</div><div class="empty-t">这个页面不存在</div><div class="empty-s">可能已经移动或删除了</div><p style="margin-top:28px"><a class="btn btn-lg" href="/index.html">← 回到首页</a></p></div></div>
     </main>
   </div>
 </div>
-<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<button class="to-top" id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
 <div class="toast" id="toast"></div>
 <script src="assets/app.js"></script>
 </body>

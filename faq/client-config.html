@@ -8,13 +8,27 @@
 <meta property="og:title" content="客户端配置自查清单 - 聚合导航">
 <meta property="og:description" content="报错说不清原因时，先按这张表逐项核对 —— 聚合导航">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="聚合导航">
+<meta property="og:image" content="https://juheaidh.pages.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="客户端配置自查清单 - 聚合导航">
+<meta name="twitter:description" content="报错说不清原因时，先按这张表逐项核对 —— 聚合导航">
+<meta name="twitter:image" content="https://juheaidh.pages.dev/og-image.png">
+<meta name="theme-color" content="#2563eb">
+
 <link rel="canonical" href="https://juheaidh.pages.dev/faq/client-config.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"客户端配置自查清单","description":"报错说不清原因时，先按这张表逐项核对","url":"https://juheaidh.pages.dev/faq/client-config.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"聚合导航","url":"https://juheaidh.pages.dev/"},"author":{"@type":"Person","name":"常一锦"},"datePublished":"2026-11-03","dateModified":"2026-11-03","articleSection":"问题解答","keywords":"配置,自查"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://juheaidh.pages.dev/"},{"@type":"ListItem","position":2,"name":"问题解答","item":"https://juheaidh.pages.dev/#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"},{"@type":"ListItem","position":3,"name":"客户端配置自查清单"}]}]}</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="manifest" href="../manifest.json">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
 <div class="progress" id="progress"></div>
 <div class="layout">
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar" id="sidebar" aria-label="侧边导航">
     <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
     <div id="navList">
       <a class="nav-item" href="../index.html">
@@ -23,19 +37,19 @@
       <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">3</span></a><a class="nav-item" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">17</span></a>
     </div>
     <div class="sidebar-foot">
-      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
-      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+      <button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换深色或浅色主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页" aria-label="回到首页">🏠</a>
     </div>
   </aside>
   <div class="mask" id="mask"></div>
   <div class="main">
     <header class="topbar">
-      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="打开菜单">☰</button>
       <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">问题解答</a><span class="sep">/</span><b>客户端配置自查清单</b></nav>
       <div class="spacer"></div>
-      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF" aria-label="打印或存为 PDF">🖨</button>
     </header>
-    <main class="content" id="app">
+    <main class="content" id="app" role="main">
 <div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 问题解答</div><h1>客户端配置自查清单</h1><div class="lead">报错说不清原因时，先按这张表逐项核对</div><div class="article-meta"><span class="m">🗓 2026-11-03</span><span class="dot"></span><span class="m">⏱ 约 2 分钟</span><span class="dot"></span><span class="m">📑 12 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#为什么先看这个" data-toc="为什么先看这个" class="">为什么先看这个</a><a href="#逐项核对表" data-toc="逐项核对表" class="">逐项核对表</a><a href="#最容易错的两个" data-toc="最容易错的两个" class="">最容易错的两个</a><a href="#错误一-地址结尾多了-v1" data-toc="错误一-地址结尾多了-v1" class="h3">错误一：地址结尾多了 /v1</a><a href="#错误二-密钥带了空格" data-toc="错误二-密钥带了空格" class="h3">错误二：密钥带了空格</a><a href="#按客户端查" data-toc="按客户端查" class="">按客户端查</a><a href="#cherry-studio" data-toc="cherry-studio" class="h3">Cherry Studio</a><a href="#chatbox" data-toc="chatbox" class="h3">ChatBox</a><a href="#nextchat" data-toc="nextchat" class="h3">NextChat</a><a href="#cursor" data-toc="cursor" class="h3">Cursor</a><a href="#claude-code" data-toc="claude-code" class="h3">Claude Code</a><a href="#改完还是不行" data-toc="改完还是不行" class="">改完还是不行</a></div></details><article class="article" id="articleBody"><h2 id="为什么先看这个">为什么先看这个</h2><p><strong>一半以上的报错，都是配置填错了。</strong></p><p>配置错了会表现出各种奇怪的症状：有时超时、有时 401、有时 404。先按这张表逐项核对，能省很多时间。</p><h2 id="逐项核对表">逐项核对表</h2><div class="table-wrap"><table><thead><tr><th>#</th><th>检查项</th><th>正确做法</th><th>常见错误</th></tr></thead><tbody><tr><td data-th="#">1</td><td data-th="检查项"><strong>API 地址</strong></td><td data-th="正确做法"><code>https://api.juheai.shop</code></td><td data-th="常见错误">少了 <code>https://</code></td></tr><tr><td data-th="#">2</td><td data-th="检查项"><strong>结尾</strong></td><td data-th="正确做法">不加 <code>/v1</code></td><td data-th="常见错误">加了 <code>/v1</code> 变成 <code>/v1/v1</code></td></tr><tr><td data-th="#">3</td><td data-th="检查项"><strong>协议</strong></td><td data-th="正确做法"><code>https://</code></td><td data-th="常见错误">写成 <code>http://</code></td></tr><tr><td data-th="#">4</td><td data-th="检查项"><strong>API 密钥</strong></td><td data-th="正确做法">复制按钮复制</td><td data-th="常见错误">手动选，漏字符或带空格</td></tr><tr><td data-th="#">5</td><td data-th="检查项"><strong>密钥首尾</strong></td><td data-th="正确做法">没有空格、换行</td><td data-th="常见错误">粘贴时带了换行</td></tr><tr><td data-th="#">6</td><td data-th="检查项"><strong>模型名</strong></td><td data-th="正确做法">模型广场<strong>原样复制</strong></td><td data-th="常见错误">手打拼错、大小写不符</td></tr><tr><td data-th="#">7</td><td data-th="检查项"><strong>接口类型</strong></td><td data-th="正确做法">跑 Claude 选 Anthropic</td><td data-th="常见错误">选成 OpenAI</td></tr><tr><td data-th="#">8</td><td data-th="检查项"><strong>代理</strong></td><td data-th="正确做法">我们的域名设为直连</td><td data-th="常见错误">全局代理绕远路</td></tr><tr><td data-th="#">9</td><td data-th="检查项"><strong>超时</strong></td><td data-th="正确做法">≥60 秒</td><td data-th="常见错误">设得太短</td></tr><tr><td data-th="#">10</td><td data-th="检查项"><strong>并发</strong></td><td data-th="正确做法">3-5 个</td><td data-th="常见错误">开太高被限流</td></tr></tbody></table></div><h2 id="最容易错的两个">最容易错的两个</h2><h3 id="错误一-地址结尾多了-v1">错误一：地址结尾多了 /v1</h3><p><strong>大部分客户端会自动补 <code>/v1</code>。</strong></p><p>如果你填了 <code>https://api.juheai.shop/v1</code>，客户端再补一次，变成：</p><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-copycode="1">📋 复制</button></div><pre><code>https://api.juheai.shop/v1/v1/chat/completions   ← 错误</code></pre></div><p><strong>正确填法</strong>：</p><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-copycode="1">📋 复制</button></div><pre><code>https://api.juheai.shop</code></pre></div><h3 id="错误二-密钥带了空格">错误二：密钥带了空格</h3><p>复制密钥时，如果手动拖选，很容易带上：</p><ul><li>前面一个空格</li><li>后面一个换行</li><li>最后一个字符漏掉</li></ul><p><strong>正确做法</strong>：用后台的「复制」按钮，粘贴后检查首尾。</p><h2 id="按客户端查">按客户端查</h2><h3 id="cherry-studio">Cherry Studio</h3><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-copycode="1">📋 复制</button></div><pre><code>设置 → 模型服务 → 添加
   API 地址: https://api.juheai.shop
   API 密钥: sk-xxxx（复制按钮复制）
@@ -57,7 +71,7 @@ $env:ANTHROPIC_AUTH_TOKEN=&quot;sk-xxxx&quot;</code></pre></div><h2 id="改完�
     </main>
   </div>
 </div>
-<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<button class="to-top" id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
 <div class="toast" id="toast"></div>
 <script src="../assets/app.js"></script>
 </body>

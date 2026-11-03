@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /build.mjs
+
+Sitemap: https://juheaidh.pages.dev/sitemap.xml

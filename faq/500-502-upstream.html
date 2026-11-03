@@ -8,13 +8,27 @@
 <meta property="og:title" content="500 / 502 上游服务错误 - 聚合导航">
 <meta property="og:description" content="报 500 Internal Server Error、502 Bad Gateway 时看这篇 —— 聚合导航">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="聚合导航">
+<meta property="og:image" content="https://juheaidh.pages.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="500 / 502 上游服务错误 - 聚合导航">
+<meta name="twitter:description" content="报 500 Internal Server Error、502 Bad Gateway 时看这篇 —— 聚合导航">
+<meta name="twitter:image" content="https://juheaidh.pages.dev/og-image.png">
+<meta name="theme-color" content="#2563eb">
+
 <link rel="canonical" href="https://juheaidh.pages.dev/faq/500-502-upstream.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"500 / 502 上游服务错误","description":"报 500 Internal Server Error、502 Bad Gateway 时看这篇","url":"https://juheaidh.pages.dev/faq/500-502-upstream.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"聚合导航","url":"https://juheaidh.pages.dev/"},"author":{"@type":"Person","name":"常一锦"},"datePublished":"2026-11-03","dateModified":"2026-11-03","articleSection":"问题解答","keywords":"上游"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://juheaidh.pages.dev/"},{"@type":"ListItem","position":2,"name":"问题解答","item":"https://juheaidh.pages.dev/#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"},{"@type":"ListItem","position":3,"name":"500 / 502 上游服务错误"}]}]}</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../favicon.svg">
+<link rel="manifest" href="../manifest.json">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
 <div class="progress" id="progress"></div>
 <div class="layout">
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar" id="sidebar" aria-label="侧边导航">
     <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
     <div id="navList">
       <a class="nav-item" href="../index.html">
@@ -23,19 +37,19 @@
       <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">3</span></a><a class="nav-item" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">17</span></a>
     </div>
     <div class="sidebar-foot">
-      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
-      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+      <button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换深色或浅色主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页" aria-label="回到首页">🏠</a>
     </div>
   </aside>
   <div class="mask" id="mask"></div>
   <div class="main">
     <header class="topbar">
-      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="打开菜单">☰</button>
       <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">问题解答</a><span class="sep">/</span><b>500 / 502 上游服务错误</b></nav>
       <div class="spacer"></div>
-      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF" aria-label="打印或存为 PDF">🖨</button>
     </header>
-    <main class="content" id="app">
+    <main class="content" id="app" role="main">
 <div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 问题解答</div><h1>500 / 502 上游服务错误</h1><div class="lead">报 500 Internal Server Error、502 Bad Gateway 时看这篇</div><div class="article-meta"><span class="m">🗓 2026-11-03</span><span class="dot"></span><span class="m">⏱ 约 5 分钟</span><span class="dot"></span><span class="m">📑 13 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#第一步-等-1-分钟再试" data-toc="第一步-等-1-分钟再试" class="">第一步：等 1 分钟再试</a><a href="#第二步-判断是哪种情况" data-toc="第二步-判断是哪种情况" class="">第二步：判断是哪种情况</a><a href="#情况一-只有某个模型报错" data-toc="情况一-只有某个模型报错" class="h3">情况一：只有某个模型报错</a><a href="#情况二-所有模型都报-502" data-toc="情况二-所有模型都报-502" class="h3">情况二：所有模型都报 502</a><a href="#情况三-只有你的请求报错" data-toc="情况三-只有你的请求报错" class="h3">情况三：只有你的请求报错</a><a href="#特别提醒-convert_request_failed" data-toc="特别提醒-convert_request_failed" class="">特别提醒：convert_request_failed</a><a href="#怎么判断自己该用哪种" data-toc="怎么判断自己该用哪种" class="h3">怎么判断自己该用哪种</a><a href="#怎么确认真的是上游问题" data-toc="怎么确认真的是上游问题" class="">怎么确认真的是上游问题</a><a href="#500-502-和-504-的区别" data-toc="500-502-和-504-的区别" class="">500/502 和 504 的区别</a><a href="#需要提供的信息" data-toc="需要提供的信息" class="">需要提供的信息</a><a href="#一图记住怎么办" data-toc="一图记住怎么办" class="">一图记住怎么办</a></div></details><article class="article" id="articleBody"><h2 id="报错长这样">报错长这样</h2><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-copycode="1">📋 复制</button></div><pre><code>500 Internal Server Error
 502 Bad Gateway
 convert_request_failed
@@ -54,7 +68,7 @@ bad_response_status_code
     </main>
   </div>
 </div>
-<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<button class="to-top" id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
 <div class="toast" id="toast"></div>
 <script src="../assets/app.js"></script>
 </body>
