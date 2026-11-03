@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>403 内容被拦截（关键词命中的） - 聚合导航</title>
+<meta name="description" content="报 提示词命中关键词拦截规则、内容审计 时看这篇 —— 聚合导航">
+<meta property="og:title" content="403 内容被拦截（关键词命中的） - 聚合导航">
+<meta property="og:description" content="报 提示词命中关键词拦截规则、内容审计 时看这篇 —— 聚合导航">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://juheaidh.pages.dev/faq/403-content.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
+    <div id="navList">
+      <a class="nav-item" href="../index.html">
+        <span class="nav-ico">🏠</span><span class="nav-label">全部内容</span><span class="nav-count">24</span>
+      </a>
+      <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">3</span></a><a class="nav-item" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">17</span></a>
+    </div>
+    <div class="sidebar-foot">
+      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+    </div>
+  </aside>
+  <div class="mask" id="mask"></div>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">问题解答</a><span class="sep">/</span><b>403 内容被拦截（关键词命中的）</b></nav>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+    </header>
+    <main class="content" id="app">
+<div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 问题解答</div><h1>403 内容被拦截（关键词命中的）</h1><div class="lead">报 提示词命中关键词拦截规则、内容审计 时看这篇</div><div class="article-meta"><span class="m">🗓 2026-11-03</span><span class="dot"></span><span class="m">⏱ 约 2 分钟</span><span class="dot"></span><span class="m">📑 8 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#什么内容会被拦" data-toc="什么内容会被拦" class="">什么内容会被拦</a><a href="#为什么这件事影响很大" data-toc="为什么这件事影响很大" class="">为什么这件事影响很大</a><a href="#怎么解决" data-toc="怎么解决" class="">怎么解决</a><a href="#重要提醒" data-toc="重要提醒" class="">重要提醒</a><a href="#已经触发了-要等多久" data-toc="已经触发了-要等多久" class="">已经触发了，要等多久</a><a href="#想避免踩坑" data-toc="想避免踩坑" class="">想避免踩坑</a></div></details><article class="article" id="articleBody"><h2 id="报错长这样">报错长这样</h2><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>403 Forbidden
+提示词命中关键词拦截规则，请调整提示词后重试
+内容审计命中风险规则
+Access forbidden (403)
+content policy violation</code></pre></div><h2 id="这是什么意思">这是什么意思</h2><p><strong>上游服务商的安全审核认为你的请求内容有问题</strong>，直接拒绝了。</p><p>注意：<strong>不是我们拦的</strong>，是模型提供方的内容过滤系统。</p><h2 id="什么内容会被拦">什么内容会被拦</h2><p>主要这几类（<strong>本站明确禁止</strong>）：</p><div class="table-wrap"><table><thead><tr><th>类型</th><th>说明</th></tr></thead><tbody><tr><td>逆向 / 破解</td><td>让 AI 分析如何破解软件、绕过授权</td></tr><tr><td>破甲 / 越狱</td><td>让 AI 绕过自己的安全限制</td></tr><tr><td>RP（越狱角色扮演）</td><td>通过角色扮演诱导 AI 输出违规内容</td></tr><tr><td>违法违规</td><td>涉政、涉黄、涉暴、涉赌毒等</td></tr><tr><td>攻击性内容</td><td>生成恶意代码、钓鱼邮件等</td></tr></tbody></table></div><h2 id="为什么这件事影响很大">为什么这件事影响很大</h2><p><strong>一次内容拦截，会让整条线路冷却约 10 分钟。</strong></p><p>意思是：你被拦了之后，<strong>其他用户这 10 分钟也用不了这条线路</strong>。</p><p>所以请不要反复硬撞。</p><h2 id="怎么解决">怎么解决</h2><p><strong>第一步：换一种说法</strong></p><p>把可能敏感的词换成：</p><ul><li>同义词（「破解」→「分析安全性」）</li><li>英文表达</li><li>更中性的描述</li></ul><p><strong>第二步：拆开定位</strong></p><p>如果不知道是哪句话触发的：</p><ol><li>把长 prompt 拆成几段</li><li>逐段发送</li><li>看哪一段被拦</li></ol><p><strong>第三步：删掉违规内容</strong></p><p>如果确实涉及逆向、越狱、违法用途，<strong>这个方法没有绕过的可能</strong>，请换个正当用途。</p><p><strong>第四步：误判怎么办</strong></p><p>如果是正常的技术讨论被误判：</p><div class="table-wrap"><table><thead><tr><th>做法</th><th>例子</th></tr></thead><tbody><tr><td>加语境说明</td><td>「我在学习安全防护知识，请解释如何防御 X 攻击」</td></tr><tr><td>用学术化表述</td><td>避免口语化的敏感词</td></tr><tr><td>换一个模型试</td><td>不同上游的过滤规则不同</td></tr></tbody></table></div><h2 id="重要提醒">重要提醒</h2><blockquote><p><strong>本站禁止逆向、破甲、RP 以及其他违法违规行为。</strong></p></blockquote><blockquote><p></p></blockquote><blockquote><p>触发这类拦截属于正常的风控结果，不是故障。</p></blockquote><blockquote><p><strong>多次触发会导致你的账号被限制，也会影响其他用户。</strong></p></blockquote><blockquote><p></p></blockquote><blockquote><p>请勿反复尝试，调整措辞即可。</p></blockquote><h2 id="已经触发了-要等多久">已经触发了，要等多久</h2><p>被拦截后，该线路会进入冷却：</p><div class="table-wrap"><table><thead><tr><th>次数</th><th>冷却时间</th></tr></thead><tbody><tr><td>第 1 次</td><td>约 5-10 分钟</td></tr><tr><td>短期内第 2 次</td><td>时间翻倍</td></tr><tr><td>短期内第 3 次</td><td>最长时间</td></tr></tbody></table></div><p><strong>冷却期内的表现</strong>：换成正常内容也会报「无可用线路」，等冷却结束自动恢复。</p><h2 id="想避免踩坑">想避免踩坑</h2><div class="table-wrap"><table><thead><tr><th>建议</th><th>说明</th></tr></thead><tbody><tr><td>别让 AI 帮你写破解教程</td><td>这是最高频的触发点</td></tr><tr><td>别提「越狱」「绕过限制」</td><td>这些词本身就是触发词</td></tr><tr><td>角色扮演不要设定越界情节</td><td>普通的创意写作没问题</td></tr><tr><td>技术问题用技术语言描述</td><td>「如何防御」比「如何攻击」安全</td></tr></tbody></table></div></article><div class="pager"><a class="pager-btn prev" href="../faq/403-balance.html"><span class="pager-lbl">← 上一篇</span><span class="pager-title">403 余额不足（Insufficient balance）</span></a><a class="pager-btn next" href="../faq/404-model-not-found.html"><span class="pager-lbl">下一篇 →</span><span class="pager-title">404 模型不存在或不支持</span></a></div><div class="related"><div class="related-t">同类内容</div><div class="grid"><a class="card" href="../faq/net-timeout.html"><div class="card-ico">🔌</div><div class="card-body"><div class="card-title"><span>连不上 / 请求超时（timeout）</span><span class="badge-art">文章</span></div><div class="card-desc">报 Request timed out、i/o timeout、连不上服务器时看这篇</div><div class="card-tags"><span class="tag">网络</span><span class="tag">最常见</span></div></div></a><a class="card" href="../faq/conn-reset.html"><div class="card-ico">✂️</div><div class="card-body"><div class="card-title"><span>连接被拒绝 / 连接中断（Connection refused）</span><span class="badge-art">文章</span></div><div class="card-desc">报 Connection refused、connection reset、EOF 时看这篇</div><div class="card-tags"><span class="tag">网络</span></div></div></a><a class="card" href="../faq/ssl-error.html"><div class="card-ico">🔒</div><div class="card-body"><div class="card-title"><span>SSL / 证书错误（x509）</span><span class="badge-art">文章</span></div><div class="card-desc">报 SSL certificate problem、TLS handshake 时看这篇</div><div class="card-tags"><span class="tag">网络</span><span class="tag">证书</span></div></div></a></div></div></div><aside class="toc toc-d"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#什么内容会被拦" data-toc="什么内容会被拦" class="">什么内容会被拦</a><a href="#为什么这件事影响很大" data-toc="为什么这件事影响很大" class="">为什么这件事影响很大</a><a href="#怎么解决" data-toc="怎么解决" class="">怎么解决</a><a href="#重要提醒" data-toc="重要提醒" class="">重要提醒</a><a href="#已经触发了-要等多久" data-toc="已经触发了-要等多久" class="">已经触发了，要等多久</a><a href="#想避免踩坑" data-toc="想避免踩坑" class="">想避免踩坑</a></aside></div></div>
+    </main>
+  </div>
+</div>
+<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<div class="toast" id="toast"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -65,63 +65,153 @@
   {
     "idx": 7,
     "dir": "faq",
-    "slug": "timeout",
-    "url": "faq/timeout.html",
-    "title": "连接超时、连不上",
+    "slug": "net-timeout",
+    "url": "faq/net-timeout.html",
+    "title": "连不上 / 请求超时（timeout）",
     "group": "问题解答",
     "type": "article"
   },
   {
     "idx": 8,
     "dir": "faq",
-    "slug": "auth-401",
-    "url": "faq/auth-401.html",
-    "title": "401 认证失败",
+    "slug": "conn-reset",
+    "url": "faq/conn-reset.html",
+    "title": "连接被拒绝 / 连接中断（Connection refused）",
     "group": "问题解答",
     "type": "article"
   },
   {
     "idx": 9,
     "dir": "faq",
-    "slug": "insufficient-balance",
-    "url": "faq/insufficient-balance.html",
-    "title": "余额不足",
+    "slug": "ssl-error",
+    "url": "faq/ssl-error.html",
+    "title": "SSL / 证书错误（x509）",
     "group": "问题解答",
     "type": "article"
   },
   {
     "idx": 10,
     "dir": "faq",
-    "slug": "model-not-found",
-    "url": "faq/model-not-found.html",
-    "title": "模型不存在或不支持",
+    "slug": "401-unauthorized",
+    "url": "faq/401-unauthorized.html",
+    "title": "401 认证失败（密钥无效）",
     "group": "问题解答",
     "type": "article"
   },
   {
     "idx": 11,
     "dir": "faq",
-    "slug": "rate-limit",
-    "url": "faq/rate-limit.html",
-    "title": "429 请求太频繁",
+    "slug": "403-balance",
+    "url": "faq/403-balance.html",
+    "title": "403 余额不足（Insufficient balance）",
     "group": "问题解答",
     "type": "article"
   },
   {
     "idx": 12,
     "dir": "faq",
-    "slug": "content-blocked",
-    "url": "faq/content-blocked.html",
-    "title": "内容被拦截",
+    "slug": "403-content",
+    "url": "faq/403-content.html",
+    "title": "403 内容被拦截（关键词命中的）",
     "group": "问题解答",
     "type": "article"
   },
   {
     "idx": 13,
     "dir": "faq",
+    "slug": "404-model-not-found",
+    "url": "faq/404-model-not-found.html",
+    "title": "404 模型不存在或不支持",
+    "group": "问题解答",
+    "type": "article"
+  },
+  {
+    "idx": 14,
+    "dir": "faq",
+    "slug": "404-model-unavailable",
+    "url": "faq/404-model-unavailable.html",
+    "title": "模型暂时不可用 / 无可用渠道",
+    "group": "问题解答",
+    "type": "article"
+  },
+  {
+    "idx": 15,
+    "dir": "faq",
+    "slug": "429-rate-limit",
+    "url": "faq/429-rate-limit.html",
+    "title": "429 请求太频繁（限流）",
+    "group": "问题解答",
+    "type": "article"
+  },
+  {
+    "idx": 16,
+    "dir": "faq",
     "slug": "stream-broken",
     "url": "faq/stream-broken.html",
-    "title": "回答到一半断了",
+    "title": "回答到一半断了（流式中断）",
+    "group": "问题解答",
+    "type": "article"
+  },
+  {
+    "idx": 17,
+    "dir": "faq",
+    "slug": "504-timeout",
+    "url": "faq/504-timeout.html",
+    "title": "504 网关超时（上游超时）",
+    "group": "问题解答",
+    "type": "article"
+  },
+  {
+    "idx": 18,
+    "dir": "faq",
+    "slug": "500-502-upstream",
+    "url": "faq/500-502-upstream.html",
+    "title": "500 / 502 上游服务错误",
+    "group": "问题解答",
+    "type": "article"
+  },
+  {
+    "idx": 19,
+    "dir": "faq",
+    "slug": "400-bad-request",
+    "url": "faq/400-bad-request.html",
+    "title": "400 请求参数错误",
+    "group": "问题解答",
+    "type": "article"
+  },
+  {
+    "idx": 20,
+    "dir": "faq",
+    "slug": "no-upstream",
+    "url": "faq/no-upstream.html",
+    "title": "503 无可用账号（账号池）",
+    "group": "问题解答",
+    "type": "article"
+  },
+  {
+    "idx": 21,
+    "dir": "faq",
+    "slug": "subscription-required",
+    "url": "faq/subscription-required.html",
+    "title": "需要订阅 / 分组为订阅制",
+    "group": "问题解答",
+    "type": "article"
+  },
+  {
+    "idx": 22,
+    "dir": "faq",
+    "slug": "client-config",
+    "url": "faq/client-config.html",
+    "title": "客户端配置自查清单",
+    "group": "问题解答",
+    "type": "article"
+  },
+  {
+    "idx": 23,
+    "dir": "faq",
+    "slug": "contact-support",
+    "url": "faq/contact-support.html",
+    "title": "联系客服前请准备这些",
     "group": "问题解答",
     "type": "article"
   }

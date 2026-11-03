@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 模型不存在或不支持 - 聚合导航</title>
+<meta name="description" content="报 model not found、is not supported by any configured account 时看这篇 —— 聚合导航">
+<meta property="og:title" content="404 模型不存在或不支持 - 聚合导航">
+<meta property="og:description" content="报 model not found、is not supported by any configured account 时看这篇 —— 聚合导航">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://juheaidh.pages.dev/faq/404-model-not-found.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
+    <div id="navList">
+      <a class="nav-item" href="../index.html">
+        <span class="nav-ico">🏠</span><span class="nav-label">全部内容</span><span class="nav-count">24</span>
+      </a>
+      <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">3</span></a><a class="nav-item" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">17</span></a>
+    </div>
+    <div class="sidebar-foot">
+      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+    </div>
+  </aside>
+  <div class="mask" id="mask"></div>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">问题解答</a><span class="sep">/</span><b>404 模型不存在或不支持</b></nav>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+    </header>
+    <main class="content" id="app">
+<div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 问题解答</div><h1>404 模型不存在或不支持</h1><div class="lead">报 model not found、is not supported by any configured account 时看这篇</div><div class="article-meta"><span class="m">🗓 2026-11-03</span><span class="dot"></span><span class="m">⏱ 约 2 分钟</span><span class="dot"></span><span class="m">📑 12 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#九成是模型名写错了" data-toc="九成是模型名写错了" class="">九成是模型名写错了</a><a href="#正确做法-从模型广场复制" data-toc="正确做法-从模型广场复制" class="h3">正确做法：从模型广场复制</a><a href="#常见写错的情况" data-toc="常见写错的情况" class="h3">常见写错的情况</a><a href="#第二步-确认该模型在你的分组里" data-toc="第二步-确认该模型在你的分组里" class="">第二步：确认该模型在你的分组里</a><a href="#怎么查" data-toc="怎么查" class="h3">怎么查</a><a href="#如果分组不对" data-toc="如果分组不对" class="h3">如果分组不对</a><a href="#第三步-模型可能真的没有" data-toc="第三步-模型可能真的没有" class="">第三步：模型可能真的没有</a><a href="#不同客户端的模型名填法" data-toc="不同客户端的模型名填法" class="">不同客户端的模型名填法</a><a href="#检查清单" data-toc="检查清单" class="">检查清单</a><a href="#还是不行" data-toc="还是不行" class="">还是不行</a></div></details><article class="article" id="articleBody"><h2 id="报错长这样">报错长这样</h2><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>404 Not Found
+Model &quot;xxx&quot; is not supported by any configured account in this group
+model_not_found
+The model does not exist
+Invalid model
+模型不存在</code></pre></div><h2 id="这是什么意思">这是什么意思</h2><p>服务器说：<strong>你点名的这个模型，我这儿没有</strong>。</p><p>就像你去餐厅点菜，说了个菜单上没有的菜名。</p><h2 id="九成是模型名写错了">九成是模型名写错了</h2><p>这是最常见的原因。模型名是<strong>区分大小写</strong>的，一个字母、一个横杠、一个点都不能错。</p><h3 id="正确做法-从模型广场复制">正确做法：从模型广场复制</h3><ol><li>登录 https://api.juheai.shop</li><li>进入「模型广场」</li><li>找到你要用的模型</li><li>点<strong>复制按钮</strong>（不要手打）</li><li>粘贴到客户端的「模型名」输入框</li></ol><h3 id="常见写错的情况">常见写错的情况</h3><div class="table-wrap"><table><thead><tr><th>错误写法</th><th>正确写法</th><th>问题</th></tr></thead><tbody><tr><td><code>GPT-4</code></td><td><code>gpt-4</code></td><td>大小写</td></tr><tr><td><code>deepseek_v4</code></td><td><code>deepseek-v4</code></td><td>下划线 vs 横杠</td></tr><tr><td><code>claude-3.5</code></td><td><code>claude-3-5-sonnet</code></td><td>少了后缀</td></tr><tr><td><code>gpt4</code></td><td><code>gpt-4</code></td><td>少了横杠</td></tr></tbody></table></div><h2 id="第二步-确认该模型在你的分组里">第二步：确认该模型在你的分组里</h2><p>即使模型名对了，<strong>你用的密钥所属分组</strong>也必须支持这个模型。</p><h3 id="怎么查">怎么查</h3><ol><li>后台 → 「模型广场」</li><li>看这个模型属于哪个分组</li><li>再看你的密钥属于哪个分组</li><li><strong>两者要匹配</strong></li></ol><h3 id="如果分组不对">如果分组不对</h3><div class="table-wrap"><table><thead><tr><th>情况</th><th>处理</th></tr></thead><tbody><tr><td>密钥分组没有这个模型</td><td>用支持该模型的分组创建新密钥</td></tr><tr><td>不确定该用哪个分组</td><td>看模型广场的分组标注</td></tr></tbody></table></div><h2 id="第三步-模型可能真的没有">第三步：模型可能真的没有</h2><p>如果模型广场里也搜不到，说明<strong>当前没有接入这个模型</strong>。</p><div class="table-wrap"><table><thead><tr><th>做法</th><th>说明</th></tr></thead><tbody><tr><td>换一个同类模型</td><td>比如都是 GPT 系列的另一个</td></tr><tr><td>联系我们</td><td>告诉你想要什么模型，我们会评估接入</td></tr></tbody></table></div><h2 id="不同客户端的模型名填法">不同客户端的模型名填法</h2><div class="table-wrap"><table><thead><tr><th>客户端</th><th>填在哪</th></tr></thead><tbody><tr><td>Cherry Studio</td><td>模型服务 → 模型列表 → 手动添加</td></tr><tr><td>ChatBox</td><td>设置 → 模型 → 自定义模型名</td></tr><tr><td>NextChat</td><td>设置 → 模型 → 自定义</td></tr><tr><td>Cursor</td><td>设置 → Models → 添加模型</td></tr></tbody></table></div><p>有些客户端有「下拉列表」，但列表可能是旧的。<strong>选「自定义」然后手动粘贴</strong>更可靠。</p><h2 id="检查清单">检查清单</h2><p>遇到 404 时逐项核对：</p><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>□ 模型名是从模型广场复制的吗？
+□ 大小写完全一致吗？
+□ 横杠、点、数字都没错吗？
+□ 密钥所属分组支持这个模型吗？
+□ 模型广场里能搜到这个模型吗？
+□ 客户端里选的是「自定义模型」吗？</code></pre></div><h2 id="还是不行">还是不行</h2><p>联系我们并提供：</p><ul><li>完整报错</li><li>你填的<strong>模型名原文</strong></li><li>你用的分组</li><li>客户端名称</li></ul></article><div class="pager"><a class="pager-btn prev" href="../faq/403-content.html"><span class="pager-lbl">← 上一篇</span><span class="pager-title">403 内容被拦截（关键词命中的）</span></a><a class="pager-btn next" href="../faq/404-model-unavailable.html"><span class="pager-lbl">下一篇 →</span><span class="pager-title">模型暂时不可用 / 无可用渠道</span></a></div><div class="related"><div class="related-t">同类内容</div><div class="grid"><a class="card" href="../faq/net-timeout.html"><div class="card-ico">🔌</div><div class="card-body"><div class="card-title"><span>连不上 / 请求超时（timeout）</span><span class="badge-art">文章</span></div><div class="card-desc">报 Request timed out、i/o timeout、连不上服务器时看这篇</div><div class="card-tags"><span class="tag">网络</span><span class="tag">最常见</span></div></div></a><a class="card" href="../faq/conn-reset.html"><div class="card-ico">✂️</div><div class="card-body"><div class="card-title"><span>连接被拒绝 / 连接中断（Connection refused）</span><span class="badge-art">文章</span></div><div class="card-desc">报 Connection refused、connection reset、EOF 时看这篇</div><div class="card-tags"><span class="tag">网络</span></div></div></a><a class="card" href="../faq/ssl-error.html"><div class="card-ico">🔒</div><div class="card-body"><div class="card-title"><span>SSL / 证书错误（x509）</span><span class="badge-art">文章</span></div><div class="card-desc">报 SSL certificate problem、TLS handshake 时看这篇</div><div class="card-tags"><span class="tag">网络</span><span class="tag">证书</span></div></div></a></div></div></div><aside class="toc toc-d"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#九成是模型名写错了" data-toc="九成是模型名写错了" class="">九成是模型名写错了</a><a href="#正确做法-从模型广场复制" data-toc="正确做法-从模型广场复制" class="h3">正确做法：从模型广场复制</a><a href="#常见写错的情况" data-toc="常见写错的情况" class="h3">常见写错的情况</a><a href="#第二步-确认该模型在你的分组里" data-toc="第二步-确认该模型在你的分组里" class="">第二步：确认该模型在你的分组里</a><a href="#怎么查" data-toc="怎么查" class="h3">怎么查</a><a href="#如果分组不对" data-toc="如果分组不对" class="h3">如果分组不对</a><a href="#第三步-模型可能真的没有" data-toc="第三步-模型可能真的没有" class="">第三步：模型可能真的没有</a><a href="#不同客户端的模型名填法" data-toc="不同客户端的模型名填法" class="">不同客户端的模型名填法</a><a href="#检查清单" data-toc="检查清单" class="">检查清单</a><a href="#还是不行" data-toc="还是不行" class="">还是不行</a></aside></div></div>
+    </main>
+  </div>
+</div>
+<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<div class="toast" id="toast"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

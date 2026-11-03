@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>400 请求参数错误 - 聚合导航</title>
+<meta name="description" content="报 400 Bad Request、does not support reasoning effort 时看这篇 —— 聚合导航">
+<meta property="og:title" content="400 请求参数错误 - 聚合导航">
+<meta property="og:description" content="报 400 Bad Request、does not support reasoning effort 时看这篇 —— 聚合导航">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://juheaidh.pages.dev/faq/400-bad-request.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
+    <div id="navList">
+      <a class="nav-item" href="../index.html">
+        <span class="nav-ico">🏠</span><span class="nav-label">全部内容</span><span class="nav-count">24</span>
+      </a>
+      <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">3</span></a><a class="nav-item" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">17</span></a>
+    </div>
+    <div class="sidebar-foot">
+      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+    </div>
+  </aside>
+  <div class="mask" id="mask"></div>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">问题解答</a><span class="sep">/</span><b>400 请求参数错误</b></nav>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+    </header>
+    <main class="content" id="app">
+<div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 问题解答</div><h1>400 请求参数错误</h1><div class="lead">报 400 Bad Request、does not support reasoning effort 时看这篇</div><div class="article-meta"><span class="m">🗓 2026-11-03</span><span class="dot"></span><span class="m">⏱ 约 2 分钟</span><span class="dot"></span><span class="m">📑 10 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#最常见的四种" data-toc="最常见的四种" class="">最常见的四种</a><a href="#1-推理档位不支持" data-toc="1-推理档位不支持" class="h3">1. 推理档位不支持</a><a href="#2-温度参数超范围" data-toc="2-温度参数超范围" class="h3">2. 温度参数超范围</a><a href="#3-消息内容为空" data-toc="3-消息内容为空" class="h3">3. 消息内容为空</a><a href="#4-max_tokens-太大" data-toc="4-max_tokens-太大" class="h3">4. max_tokens 太大</a><a href="#万能解决办法-恢复默认参数" data-toc="万能解决办法-恢复默认参数" class="">万能解决办法：恢复默认参数</a><a href="#参数速查表" data-toc="参数速查表" class="">参数速查表</a><a href="#如果都不是这些" data-toc="如果都不是这些" class="">如果都不是这些</a></div></details><article class="article" id="articleBody"><h2 id="报错长这样">报错长这样</h2><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>400 Bad Request
+invalid request
+does not support reasoning effort &quot;none&quot;
+temperature must be between 0 and 2
+消息内容为空
+max_tokens 超出范围</code></pre></div><h2 id="这是什么意思">这是什么意思</h2><p><strong>你的请求参数有问题</strong>，服务器看懂了但表示「这个参数我不能接受」。</p><h2 id="最常见的四种">最常见的四种</h2><h3 id="1-推理档位不支持">1. 推理档位不支持</h3><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>gpt-xxx does not support reasoning effort &quot;none&quot;</code></pre></div><p><strong>原因</strong>：这个模型不支持你设置的推理强度。</p><p><strong>解决</strong>：</p><div class="table-wrap"><table><thead><tr><th>你的设置</th><th>改成</th></tr></thead><tbody><tr><td><code>none</code></td><td><code>low</code> 或 <code>medium</code></td></tr><tr><td><code>high</code> / <code>xhigh</code></td><td><code>medium</code></td></tr><tr><td>开着「深度思考」</td><td>关掉试试</td></tr></tbody></table></div><p><strong>客户端里的位置</strong>：</p><ul><li>Cherry Studio：助手设置 → 推理强度</li><li>Cursor：Settings → Models → Reasoning</li><li>ChatBox：高级设置 → reasoning_effort</li></ul><h3 id="2-温度参数超范围">2. 温度参数超范围</h3><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>temperature must be between 0 and 2
+top_p must be between 0 and 1</code></pre></div><p><strong>解决</strong>：</p><div class="table-wrap"><table><thead><tr><th>参数</th><th>允许范围</th><th>推荐值</th></tr></thead><tbody><tr><td><code>temperature</code></td><td>0 ~ 2</td><td>0.7</td></tr><tr><td><code>top_p</code></td><td>0 ~ 1</td><td>1</td></tr><tr><td><code>max_tokens</code></td><td>视模型而定</td><td>别设太小</td></tr></tbody></table></div><h3 id="3-消息内容为空">3. 消息内容为空</h3><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>消息内容为空或只有空白/标点</code></pre></div><p><strong>原因</strong>：你发的内容是空的、只有空格、只有换行，或只有标点。</p><p><strong>解决</strong>：检查输入框里是不是真的有内容。</p><h3 id="4-max_tokens-太大">4. max_tokens 太大</h3><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>max_tokens exceeds model limit</code></pre></div><p><strong>原因</strong>：你要的输出长度超过了模型上限。</p><p><strong>解决</strong>：调小 <code>max_tokens</code>，或者让它分段生成。</p><h2 id="万能解决办法-恢复默认参数">万能解决办法：恢复默认参数</h2><p><strong>不知道哪里错了？全部恢复默认。</strong></p><div class="table-wrap"><table><thead><tr><th>客户端</th><th>怎么恢复</th></tr></thead><tbody><tr><td>Cherry Studio</td><td>助手设置 → 重置参数</td></tr><tr><td>ChatBox</td><td>设置 → 恢复默认</td></tr><tr><td>Cursor</td><td>删掉自定义参数</td></tr><tr><td>其他</td><td>找「高级设置」，全部清空</td></tr></tbody></table></div><h2 id="参数速查表">参数速查表</h2><div class="table-wrap"><table><thead><tr><th>参数</th><th>作用</th><th>安全值</th></tr></thead><tbody><tr><td><code>temperature</code></td><td>随机性，越高越发散</td><td>0.7</td></tr><tr><td><code>top_p</code></td><td>采样范围</td><td>1</td></tr><tr><td><code>max_tokens</code></td><td>最多输出多少 token</td><td>4096</td></tr><tr><td><code>reasoning_effort</code></td><td>推理强度</td><td><code>medium</code> 或留空</td></tr><tr><td><code>frequency_penalty</code></td><td>重复惩罚</td><td>0</td></tr><tr><td><code>presence_penalty</code></td><td>话题惩罚</td><td>0</td></tr></tbody></table></div><blockquote><p><strong>小白建议</strong>：这些参数<strong>全部留空或默认</strong>就够了。调参数是高级玩法，调错了就是各种 400。</p></blockquote><h2 id="如果都不是这些">如果都不是这些</h2><p>联系我们并提供：</p><ul><li>完整报错</li><li>你改了哪些参数（截图客户端设置）</li><li>客户端名称</li><li>模型名</li></ul></article><div class="pager"><a class="pager-btn prev" href="../faq/500-502-upstream.html"><span class="pager-lbl">← 上一篇</span><span class="pager-title">500 / 502 上游服务错误</span></a><a class="pager-btn next" href="../faq/no-upstream.html"><span class="pager-lbl">下一篇 →</span><span class="pager-title">503 无可用账号（账号池）</span></a></div><div class="related"><div class="related-t">同类内容</div><div class="grid"><a class="card" href="../faq/net-timeout.html"><div class="card-ico">🔌</div><div class="card-body"><div class="card-title"><span>连不上 / 请求超时（timeout）</span><span class="badge-art">文章</span></div><div class="card-desc">报 Request timed out、i/o timeout、连不上服务器时看这篇</div><div class="card-tags"><span class="tag">网络</span><span class="tag">最常见</span></div></div></a><a class="card" href="../faq/conn-reset.html"><div class="card-ico">✂️</div><div class="card-body"><div class="card-title"><span>连接被拒绝 / 连接中断（Connection refused）</span><span class="badge-art">文章</span></div><div class="card-desc">报 Connection refused、connection reset、EOF 时看这篇</div><div class="card-tags"><span class="tag">网络</span></div></div></a><a class="card" href="../faq/ssl-error.html"><div class="card-ico">🔒</div><div class="card-body"><div class="card-title"><span>SSL / 证书错误（x509）</span><span class="badge-art">文章</span></div><div class="card-desc">报 SSL certificate problem、TLS handshake 时看这篇</div><div class="card-tags"><span class="tag">网络</span><span class="tag">证书</span></div></div></a></div></div></div><aside class="toc toc-d"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#最常见的四种" data-toc="最常见的四种" class="">最常见的四种</a><a href="#1-推理档位不支持" data-toc="1-推理档位不支持" class="h3">1. 推理档位不支持</a><a href="#2-温度参数超范围" data-toc="2-温度参数超范围" class="h3">2. 温度参数超范围</a><a href="#3-消息内容为空" data-toc="3-消息内容为空" class="h3">3. 消息内容为空</a><a href="#4-max_tokens-太大" data-toc="4-max_tokens-太大" class="h3">4. max_tokens 太大</a><a href="#万能解决办法-恢复默认参数" data-toc="万能解决办法-恢复默认参数" class="">万能解决办法：恢复默认参数</a><a href="#参数速查表" data-toc="参数速查表" class="">参数速查表</a><a href="#如果都不是这些" data-toc="如果都不是这些" class="">如果都不是这些</a></aside></div></div>
+    </main>
+  </div>
+</div>
+<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<div class="toast" id="toast"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>504 网关超时（上游超时） - 聚合导航</title>
+<meta name="description" content="报 504 Gateway Timeout、524、upstream timeout 时看这篇 —— 聚合导航">
+<meta property="og:title" content="504 网关超时（上游超时） - 聚合导航">
+<meta property="og:description" content="报 504 Gateway Timeout、524、upstream timeout 时看这篇 —— 聚合导航">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://juheaidh.pages.dev/faq/504-timeout.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
+    <div id="navList">
+      <a class="nav-item" href="../index.html">
+        <span class="nav-ico">🏠</span><span class="nav-label">全部内容</span><span class="nav-count">24</span>
+      </a>
+      <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">3</span></a><a class="nav-item" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">17</span></a>
+    </div>
+    <div class="sidebar-foot">
+      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+    </div>
+  </aside>
+  <div class="mask" id="mask"></div>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">问题解答</a><span class="sep">/</span><b>504 网关超时（上游超时）</b></nav>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+    </header>
+    <main class="content" id="app">
+<div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 问题解答</div><h1>504 网关超时（上游超时）</h1><div class="lead">报 504 Gateway Timeout、524、upstream timeout 时看这篇</div><div class="article-meta"><span class="m">🗓 2026-11-03</span><span class="dot"></span><span class="m">⏱ 约 2 分钟</span><span class="dot"></span><span class="m">📑 8 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#什么情况容易超时" data-toc="什么情况容易超时" class="">什么情况容易超时</a><a href="#怎么解决" data-toc="怎么解决" class="">怎么解决</a><a href="#关于-524" data-toc="关于-524" class="">关于 524</a><a href="#长文档处理的建议" data-toc="长文档处理的建议" class="">长文档处理的建议</a><a href="#什么时候是我们的问题" data-toc="什么时候是我们的问题" class="">什么时候是我们的问题</a><a href="#联系我们时提供" data-toc="联系我们时提供" class="">联系我们时提供</a></div></details><article class="article" id="articleBody"><h2 id="报错长这样">报错长这样</h2><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>504 Gateway Timeout
+524 A timeout occurred
+upstream timeout
+origin_response_timeout
+网关超时</code></pre></div><h2 id="这是什么意思">这是什么意思</h2><p><strong>上游服务器处理你的请求太久了，中间等不及，主动断开了。</strong></p><p>跟「连接超时」不一样：</p><div class="table-wrap"><table><thead><tr><th>报错</th><th>区别</th></tr></thead><tbody><tr><td>连接超时 timeout</td><td>根本连不上</td></tr><tr><td><strong>504 网关超时</strong></td><td>连上了，但对方处理太慢</td></tr></tbody></table></div><h2 id="什么情况容易超时">什么情况容易超时</h2><div class="table-wrap"><table><thead><tr><th>情况</th><th>说明</th></tr></thead><tbody><tr><td>超长上下文</td><td>传了几万甚至几十万 token</td></tr><tr><td>复杂推理任务</td><td>让 AI 做深度思考</td></tr><tr><td>生成长文本</td><td>一次要写几千字</td></tr><tr><td>上游繁忙</td><td>大家都在用，排队</td></tr></tbody></table></div><h2 id="怎么解决">怎么解决</h2><p><strong>第一步：简化问题</strong></p><div class="table-wrap"><table><thead><tr><th>做法</th><th>效果</th></tr></thead><tbody><tr><td>减少上下文</td><td>开新对话，别带太多历史</td></tr><tr><td>拆成几步问</td><td>复杂任务分阶段</td></tr><tr><td>缩短输出要求</td><td>「简要说明」而不是「详细展开」</td></tr></tbody></table></div><p><strong>第二步：换模型</strong></p><p>不同的模型响应速度不一样：</p><ul><li>小参数模型更快</li><li>推理型模型更慢但更准</li><li>高峰期换一个负载低的</li></ul><p><strong>第三步：等一会儿重试</strong></p><p>上游繁忙是暂时的，等 1-2 分钟再试。</p><p><strong>第四步：关掉流式</strong></p><p>有时非流式反而更稳定（不会中途断）。</p><h2 id="关于-524">关于 524</h2><p><code>524</code> 是 Cloudflare 特有的错误码，含义是「源站响应超时」。</p><p>如果你看到 524：</p><ol><li><strong>肯定是请求耗时太长</strong></li><li>参考上面的「简化问题」</li><li>如果反复出现，联系我们</li></ol><h2 id="长文档处理的建议">长文档处理的建议</h2><p>如果你要处理很长的文档：</p><div class="table-wrap"><table><thead><tr><th>做法</th><th>说明</th></tr></thead><tbody><tr><td>分段处理</td><td>每次处理一部分，最后汇总</td></tr><tr><td>先摘要再细问</td><td>先让它总结，再针对要点问</td></tr><tr><td>用支持长上下文的模型</td><td>模型广场会标注上下文长度</td></tr><tr><td>别把所有内容一次性塞进去</td><td>越短越快</td></tr></tbody></table></div><h2 id="什么时候是我们的问题">什么时候是我们的问题</h2><div class="table-wrap"><table><thead><tr><th>现象</th><th>判断</th></tr></thead><tbody><tr><td>简单问题也 504</td><td>上游故障，联系我们</td></tr><tr><td>只有某个模型 504</td><td>该模型线路问题</td></tr><tr><td>高峰期频繁 504</td><td>容量问题，可反馈</td></tr><tr><td>复杂任务偶尔 504</td><td>正常，简化问题</td></tr></tbody></table></div><h2 id="联系我们时提供">联系我们时提供</h2><ul><li>完整报错</li><li>模型名</li><li>大概的上下文字数（或多长的对话）</li><li>是简单问题还是复杂任务</li><li>出现频率（每次都这样 vs 偶尔）</li></ul></article><div class="pager"><a class="pager-btn prev" href="../faq/stream-broken.html"><span class="pager-lbl">← 上一篇</span><span class="pager-title">回答到一半断了（流式中断）</span></a><a class="pager-btn next" href="../faq/500-502-upstream.html"><span class="pager-lbl">下一篇 →</span><span class="pager-title">500 / 502 上游服务错误</span></a></div><div class="related"><div class="related-t">同类内容</div><div class="grid"><a class="card" href="../faq/net-timeout.html"><div class="card-ico">🔌</div><div class="card-body"><div class="card-title"><span>连不上 / 请求超时（timeout）</span><span class="badge-art">文章</span></div><div class="card-desc">报 Request timed out、i/o timeout、连不上服务器时看这篇</div><div class="card-tags"><span class="tag">网络</span><span class="tag">最常见</span></div></div></a><a class="card" href="../faq/conn-reset.html"><div class="card-ico">✂️</div><div class="card-body"><div class="card-title"><span>连接被拒绝 / 连接中断（Connection refused）</span><span class="badge-art">文章</span></div><div class="card-desc">报 Connection refused、connection reset、EOF 时看这篇</div><div class="card-tags"><span class="tag">网络</span></div></div></a><a class="card" href="../faq/ssl-error.html"><div class="card-ico">🔒</div><div class="card-body"><div class="card-title"><span>SSL / 证书错误（x509）</span><span class="badge-art">文章</span></div><div class="card-desc">报 SSL certificate problem、TLS handshake 时看这篇</div><div class="card-tags"><span class="tag">网络</span><span class="tag">证书</span></div></div></a></div></div></div><aside class="toc toc-d"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#什么情况容易超时" data-toc="什么情况容易超时" class="">什么情况容易超时</a><a href="#怎么解决" data-toc="怎么解决" class="">怎么解决</a><a href="#关于-524" data-toc="关于-524" class="">关于 524</a><a href="#长文档处理的建议" data-toc="长文档处理的建议" class="">长文档处理的建议</a><a href="#什么时候是我们的问题" data-toc="什么时候是我们的问题" class="">什么时候是我们的问题</a><a href="#联系我们时提供" data-toc="联系我们时提供" class="">联系我们时提供</a></aside></div></div>
+    </main>
+  </div>
+</div>
+<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<div class="toast" id="toast"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

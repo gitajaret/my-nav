@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>503 无可用账号（账号池） - 聚合导航</title>
+<meta name="description" content="报 Service temporarily unavailable、ACCOUNT_POOL_UNAVAILABLE 时看这篇 —— 聚合导航">
+<meta property="og:title" content="503 无可用账号（账号池） - 聚合导航">
+<meta property="og:description" content="报 Service temporarily unavailable、ACCOUNT_POOL_UNAVAILABLE 时看这篇 —— 聚合导航">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://juheaidh.pages.dev/faq/no-upstream.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
+    <div id="navList">
+      <a class="nav-item" href="../index.html">
+        <span class="nav-ico">🏠</span><span class="nav-label">全部内容</span><span class="nav-count">24</span>
+      </a>
+      <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">3</span></a><a class="nav-item" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">17</span></a>
+    </div>
+    <div class="sidebar-foot">
+      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+    </div>
+  </aside>
+  <div class="mask" id="mask"></div>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">问题解答</a><span class="sep">/</span><b>503 无可用账号（账号池）</b></nav>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+    </header>
+    <main class="content" id="app">
+<div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 问题解答</div><h1>503 无可用账号（账号池）</h1><div class="lead">报 Service temporarily unavailable、ACCOUNT_POOL_UNAVAILABLE 时看这篇</div><div class="article-meta"><span class="m">🗓 2026-11-03</span><span class="dot"></span><span class="m">⏱ 约 2 分钟</span><span class="dot"></span><span class="m">📑 9 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#为什么账号会不可用" data-toc="为什么账号会不可用" class="">为什么账号会不可用</a><a href="#第一步-等一会" data-toc="第一步-等一会" class="">第一步：等一会</a><a href="#第二步-换模型" data-toc="第二步-换模型" class="">第二步：换模型</a><a href="#第三步-确认不是密钥问题" data-toc="第三步-确认不是密钥问题" class="">第三步：确认不是密钥问题</a><a href="#第四步-是不是刚刚有人触发风控" data-toc="第四步-是不是刚刚有人触发风控" class="">第四步：是不是刚刚有人触发风控</a><a href="#超过-15-分钟还不行" data-toc="超过-15-分钟还不行" class="">超过 15 分钟还不行</a><a href="#我们在做什么" data-toc="我们在做什么" class="">我们在做什么</a></div></details><article class="article" id="articleBody"><h2 id="报错长这样">报错长这样</h2><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>503 Service temporarily unavailable
+ACCOUNT_POOL_UNAVAILABLE
+MODEL_CAPACITY_EXHAUSTED
+ALL_ACCOUNTS_RATE_LIMITED
+no upstream available
+所有账号都在冷却中</code></pre></div><h2 id="这是什么意思">这是什么意思</h2><p><strong>这个分组下，所有能用的账号都暂时不可用了。</strong></p><p>想象一个停车场：</p><ul><li>每个账号 = 一个车位</li><li>车位全满了 = 你停不进去</li><li>车位空出来 = 你就能进了</li></ul><h2 id="为什么账号会不可用">为什么账号会不可用</h2><div class="table-wrap"><table><thead><tr><th>原因</th><th>说明</th><th>恢复时间</th></tr></thead><tbody><tr><td>冷却中</td><td>触发了上游的错误（如内容拦截）</td><td>5-10 分钟</td></tr><tr><td>限流中</td><td>请求太多被限速</td><td>1-5 分钟</td></tr><tr><td>维护中</td><td>我们主动下线</td><td>看通知</td></tr><tr><td>余额耗尽</td><td>上游账号没钱了</td><td>我们处理</td></tr></tbody></table></div><h2 id="第一步-等一会">第一步：等一会</h2><p><strong>大多数情况 1-5 分钟自动恢复。</strong> 因为冷却会到期，账号会重新上线。</p><h2 id="第二步-换模型">第二步：换模型</h2><p>不同的模型用的账号池不一样：</p><div class="table-wrap"><table><thead><tr><th>你遇到的</th><th>可以试试</th></tr></thead><tbody><tr><td>某个模型无可用账号</td><td>同系列其他型号</td></tr><tr><td>所有 GPT 模型都不行</td><td>试试 Claude 或 DeepSeek</td></tr><tr><td>所有模型都不行</td><td>联系我们</td></tr></tbody></table></div><h2 id="第三步-确认不是密钥问题">第三步：确认不是密钥问题</h2><div class="table-wrap"><table><thead><tr><th>报错</th><th>是谁的问题</th></tr></thead><tbody><tr><td><code>ACCOUNT_POOL_UNAVAILABLE</code></td><td><strong>线路问题</strong>，不是你的密钥</td></tr><tr><td><code>401 Unauthorized</code></td><td><strong>你的密钥</strong>问题</td></tr><tr><td><code>403 Insufficient balance</code></td><td><strong>你的余额</strong>问题</td></tr></tbody></table></div><h2 id="第四步-是不是刚刚有人触发风控">第四步：是不是刚刚有人触发风控</h2><p>如果你或别人刚被内容拦截，<strong>整条线路会冷却</strong>。</p><div class="table-wrap"><table><thead><tr><th>现象</th><th>说明</th></tr></thead><tbody><tr><td>刚才还能用，突然不行了</td><td>可能有人触发风控</td></tr><tr><td>等 10 分钟后恢复</td><td>冷却结束</td></tr><tr><td>换个模型能用</td><td>那条线路冷却，别的正常</td></tr></tbody></table></div><blockquote><p><strong>这就是为什么我们说「请不要反复尝试违规内容」</strong>——一个人触发，整条线路的人都要等。</p></blockquote><h2 id="超过-15-分钟还不行">超过 15 分钟还不行</h2><p>联系我们，并提供：</p><div class="table-wrap"><table><thead><tr><th>信息</th><th>说明</th></tr></thead><tbody><tr><td>报错原文</td><td>完整文字</td></tr><tr><td>模型名</td><td>你用的哪个</td></tr><tr><td>分组名</td><td>模型广场上标的</td></tr><tr><td>开始时间</td><td>几点开始的</td></tr><tr><td>是否所有模型都不行</td><td>试了几个</td></tr></tbody></table></div><p>我们会检查账号状态，必要时补充线路。</p><h2 id="我们在做什么">我们在做什么</h2><p>为了减少这种情况：</p><div class="table-wrap"><table><thead><tr><th>措施</th><th>效果</th></tr></thead><tbody><tr><td>增加账号冗余</td><td>一个挂了还有备份</td></tr><tr><td>池模式重试</td><td>遇到错误自动换账号</td></tr><tr><td>冷却时间优化</td><td>缩短不必要的冷却</td></tr><tr><td>监控告警</td><td>提前发现问题</td></tr></tbody></table></div><p>如果你经常遇到，反馈给我们，会针对性扩容。</p></article><div class="pager"><a class="pager-btn prev" href="../faq/400-bad-request.html"><span class="pager-lbl">← 上一篇</span><span class="pager-title">400 请求参数错误</span></a><a class="pager-btn next" href="../faq/subscription-required.html"><span class="pager-lbl">下一篇 →</span><span class="pager-title">需要订阅 / 分组为订阅制</span></a></div><div class="related"><div class="related-t">同类内容</div><div class="grid"><a class="card" href="../faq/net-timeout.html"><div class="card-ico">🔌</div><div class="card-body"><div class="card-title"><span>连不上 / 请求超时（timeout）</span><span class="badge-art">文章</span></div><div class="card-desc">报 Request timed out、i/o timeout、连不上服务器时看这篇</div><div class="card-tags"><span class="tag">网络</span><span class="tag">最常见</span></div></div></a><a class="card" href="../faq/conn-reset.html"><div class="card-ico">✂️</div><div class="card-body"><div class="card-title"><span>连接被拒绝 / 连接中断（Connection refused）</span><span class="badge-art">文章</span></div><div class="card-desc">报 Connection refused、connection reset、EOF 时看这篇</div><div class="card-tags"><span class="tag">网络</span></div></div></a><a class="card" href="../faq/ssl-error.html"><div class="card-ico">🔒</div><div class="card-body"><div class="card-title"><span>SSL / 证书错误（x509）</span><span class="badge-art">文章</span></div><div class="card-desc">报 SSL certificate problem、TLS handshake 时看这篇</div><div class="card-tags"><span class="tag">网络</span><span class="tag">证书</span></div></div></a></div></div></div><aside class="toc toc-d"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#这是什么意思" data-toc="这是什么意思" class="">这是什么意思</a><a href="#为什么账号会不可用" data-toc="为什么账号会不可用" class="">为什么账号会不可用</a><a href="#第一步-等一会" data-toc="第一步-等一会" class="">第一步：等一会</a><a href="#第二步-换模型" data-toc="第二步-换模型" class="">第二步：换模型</a><a href="#第三步-确认不是密钥问题" data-toc="第三步-确认不是密钥问题" class="">第三步：确认不是密钥问题</a><a href="#第四步-是不是刚刚有人触发风控" data-toc="第四步-是不是刚刚有人触发风控" class="">第四步：是不是刚刚有人触发风控</a><a href="#超过-15-分钟还不行" data-toc="超过-15-分钟还不行" class="">超过 15 分钟还不行</a><a href="#我们在做什么" data-toc="我们在做什么" class="">我们在做什么</a></aside></div></div>
+    </main>
+  </div>
+</div>
+<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<div class="toast" id="toast"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>
