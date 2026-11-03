@@ -336,4 +336,23 @@ PLAN.forEach(p => {
   console.log("生成 " + p.url);
 });
 
+/* ---------- 404 ---------- */
+{
+  const content = '<div class="detail-wrap"><div class="empty" style="padding:80px 0">' +
+    '<div class="empty-ico">🧭</div>' +
+    '<div class="empty-t">这个页面不存在</div>' +
+    '<div class="empty-s">可能已经移动或删除了</div>' +
+    '<p style="margin-top:28px"><a class="btn btn-lg" href="/index.html">← 回到首页</a></p>' +
+    '</div></div>';
+  const out = layout({
+    title: "页面不存在 - " + SITE.title,
+    desc: "你访问的页面不存在，请回到首页查看全部内容。",
+    content,
+    depth: 0,
+    crumb: "<b>页面不存在</b>",
+  });
+  fs.writeFileSync(path.join(NAV, "404.html"), out, "utf8");
+  console.log("生成 404.html");
+}
+
 console.log("\n✅ 全部完成：1 个首页 + " + PLAN.length + " 个详情页");
