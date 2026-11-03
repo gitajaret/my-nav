@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>快速开始：三步接入 - 聚合导航</title>
+<meta name="description" content="注册、创建密钥、填入客户端，五分钟跑通第一个请求 —— 聚合导航">
+<meta property="og:title" content="快速开始：三步接入 - 聚合导航">
+<meta property="og:description" content="注册、创建密钥、填入客户端，五分钟跑通第一个请求 —— 聚合导航">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://juheaidh.pages.dev/tutorial/quick-start.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
+    <div id="navList">
+      <a class="nav-item" href="../index.html">
+        <span class="nav-ico">🏠</span><span class="nav-label">全部内容</span><span class="nav-count">15</span>
+      </a>
+      <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">7</span></a>
+    </div>
+    <div class="sidebar-foot">
+      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+    </div>
+  </aside>
+  <div class="mask" id="mask"></div>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B">使用教程</a><span class="sep">/</span><b>快速开始：三步接入</b></nav>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+    </header>
+    <main class="content" id="app">
+<div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 使用教程</div><h1>快速开始：三步接入</h1><div class="lead">注册、创建密钥、填入客户端，五分钟跑通第一个请求</div><div class="article-meta"><span class="m">🗓 2026-10-31</span><span class="dot"></span><span class="m">⏱ 约 3 分钟</span><span class="dot"></span><span class="m">📑 4 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#第一步-登录控制台" data-toc="第一步-登录控制台" class="">第一步：登录控制台</a><a href="#第二步-创建密钥" data-toc="第二步-创建密钥" class="">第二步：创建密钥</a><a href="#第三步-填入客户端" data-toc="第三步-填入客户端" class="">第三步：填入客户端</a><a href="#常见卡点" data-toc="常见卡点" class="">常见卡点</a></div></details><article class="article" id="articleBody"><h2 id="第一步-登录控制台">第一步：登录控制台</h2><p>打开 <a href="https://api.juheai.shop" target="_blank" rel="noopener">Sub2API 控制台</a>，用注册的邮箱登录。</p><p>登录后先看一眼<strong>余额</strong>，新账户可能有免费额度，也可能需要先充值。</p><h2 id="第二步-创建密钥">第二步：创建密钥</h2><p>进入「密钥」页面，点「新建密钥」，然后：</p><ul><li><strong>选择分组</strong>：不同分组对应不同的模型和价格，不确定就先用默认分组</li><li><strong>设置名称</strong>：随便起个名字，方便以后区分（比如「Cherry 用」）</li><li><strong>设置额度</strong>：可选，不填就是不限</li></ul><p>创建后会得到一串以 <code>sk-</code> 开头的字符串。<strong>这串东西只显示一次</strong>，一定复制保存好。</p><blockquote><p>密钥等同于你的账号密码。不要发给任何人，也不要提交到 Git 仓库。</p></blockquote><h2 id="第三步-填入客户端">第三步：填入客户端</h2><p>以 Cherry Studio 为例，在设置里添加一个 OpenAI 兼容的服务商：</p><div class="table-wrap"><table><thead><tr><th>配置项</th><th>填什么</th></tr></thead><tbody><tr><td>API 地址</td><td><code>https://api.juheai.shop</code></td></tr><tr><td>API 密钥</td><td>刚才复制的那串 <code>sk-...</code></td></tr><tr><td>模型</td><td>从控制台的「模型广场」复制模型名</td></tr></tbody></table></div><p>保存后发一条消息测试，能正常回复就算接通了。</p><h2 id="常见卡点">常见卡点</h2><ul><li><strong>地址结尾不要加 <code>/v1</code></strong>，多数客户端会自动补，加了会变成 <code>/v1/v1</code></li><li><strong>密钥首尾不要有空格</strong>，从网页复制常带换行</li><li><strong>模型名要完全一致</strong>，包括大小写和连字符</li></ul></article><div class="pager"><div class="pager-btn prev pager-empty"><span class="pager-lbl">← 上一篇</span><span class="pager-title">已经是第一篇</span></div><a class="pager-btn next" href="../tutorial/client-config.html"><span class="pager-lbl">下一篇 →</span><span class="pager-title">客户端配置指南</span></a></div><div class="related"><div class="related-t">同类内容</div><div class="grid"><a class="card" href="../tutorial/client-config.html"><div class="card-ico">🛠</div><div class="card-body"><div class="card-title"><span>客户端配置指南</span><span class="badge-art">文章</span></div><div class="card-desc">Cherry Studio、ChatBox、Cursor、Claude Code 分别怎么填</div><div class="card-tags"><span class="tag">配置</span><span class="tag">客户端</span></div></div></a><a class="card" href="../tutorial/choose-model.html"><div class="card-ico">🎯</div><div class="card-body"><div class="card-title"><span>如何选择模型</span><span class="badge-art">文章</span></div><div class="card-desc">不同场景该用哪个模型，贵的和便宜的区别在哪</div><div class="card-tags"><span class="tag">选型</span></div></div></a><a class="card" href="../tutorial/billing.html"><div class="card-ico">💳</div><div class="card-body"><div class="card-title"><span>充值与计费说明</span><span class="badge-art">文章</span></div><div class="card-desc">余额怎么算、怎么充、用完会怎样</div><div class="card-tags"><span class="tag">充值</span><span class="tag">计费</span></div></div></a></div></div></div><aside class="toc toc-d"><div class="toc-t">目录</div><a href="#第一步-登录控制台" data-toc="第一步-登录控制台" class="">第一步：登录控制台</a><a href="#第二步-创建密钥" data-toc="第二步-创建密钥" class="">第二步：创建密钥</a><a href="#第三步-填入客户端" data-toc="第三步-填入客户端" class="">第三步：填入客户端</a><a href="#常见卡点" data-toc="常见卡点" class="">常见卡点</a></aside></div></div>
+    </main>
+  </div>
+</div>
+<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<div class="toast" id="toast"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

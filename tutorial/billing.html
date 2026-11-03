@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>充值与计费说明 - 聚合导航</title>
+<meta name="description" content="余额怎么算、怎么充、用完会怎样 —— 聚合导航">
+<meta property="og:title" content="充值与计费说明 - 聚合导航">
+<meta property="og:description" content="余额怎么算、怎么充、用完会怎样 —— 聚合导航">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://juheaidh.pages.dev/tutorial/billing.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
+    <div id="navList">
+      <a class="nav-item" href="../index.html">
+        <span class="nav-ico">🏠</span><span class="nav-label">全部内容</span><span class="nav-count">15</span>
+      </a>
+      <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">7</span></a>
+    </div>
+    <div class="sidebar-foot">
+      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+    </div>
+  </aside>
+  <div class="mask" id="mask"></div>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B">使用教程</a><span class="sep">/</span><b>充值与计费说明</b></nav>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+    </header>
+    <main class="content" id="app">
+<div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 使用教程</div><h1>充值与计费说明</h1><div class="lead">余额怎么算、怎么充、用完会怎样</div><div class="article-meta"><span class="m">🗓 2026-10-31</span><span class="dot"></span><span class="m">⏱ 约 2 分钟</span><span class="dot"></span><span class="m">📑 4 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#计费方式" data-toc="计费方式" class="">计费方式</a><a href="#怎么充值" data-toc="怎么充值" class="">怎么充值</a><a href="#余额不足会怎样" data-toc="余额不足会怎样" class="">余额不足会怎样</a><a href="#余额提醒" data-toc="余额提醒" class="">余额提醒</a></div></details><article class="article" id="articleBody"><h2 id="计费方式">计费方式</h2><p>按 <strong>token</strong> 计费，用多少扣多少，不做预扣。</p><p>每次请求后，控制台的「用量」页面会记录：</p><ul><li>用了哪个模型</li><li>输入多少 token、输出多少 token</li><li>扣了多少钱</li></ul><h2 id="怎么充值">怎么充值</h2><p>控制台 → 充值页面，按提示操作。</p><blockquote><p>建议先小额测试（几块钱），确认整条链路通了再充大额。</p></blockquote><h2 id="余额不足会怎样">余额不足会怎样</h2><p>请求会被直接拒绝，返回：</p><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>403 Insufficient account balance</code></pre></div><p>这时候充值即可恢复，不需要重启任何东西。</p><h2 id="余额提醒">余额提醒</h2><p>余额较低时系统会发提醒（邮件或站内通知）。留意一下，别等断了才发现。</p></article><div class="pager"><a class="pager-btn prev" href="../tutorial/choose-model.html"><span class="pager-lbl">← 上一篇</span><span class="pager-title">如何选择模型</span></a><div class="pager-btn next pager-empty"><span class="pager-lbl">下一篇 →</span><span class="pager-title">已经是最后一篇</span></div></div><div class="related"><div class="related-t">同类内容</div><div class="grid"><a class="card" href="../tutorial/quick-start.html"><div class="card-ico">🚀</div><div class="card-body"><div class="card-title"><span>快速开始：三步接入</span><span class="badge-art">文章</span></div><div class="card-desc">注册、创建密钥、填入客户端，五分钟跑通第一个请求</div><div class="card-tags"><span class="tag">入门</span><span class="tag">必读</span></div></div></a><a class="card" href="../tutorial/client-config.html"><div class="card-ico">🛠</div><div class="card-body"><div class="card-title"><span>客户端配置指南</span><span class="badge-art">文章</span></div><div class="card-desc">Cherry Studio、ChatBox、Cursor、Claude Code 分别怎么填</div><div class="card-tags"><span class="tag">配置</span><span class="tag">客户端</span></div></div></a><a class="card" href="../tutorial/choose-model.html"><div class="card-ico">🎯</div><div class="card-body"><div class="card-title"><span>如何选择模型</span><span class="badge-art">文章</span></div><div class="card-desc">不同场景该用哪个模型，贵的和便宜的区别在哪</div><div class="card-tags"><span class="tag">选型</span></div></div></a></div></div></div><aside class="toc toc-d"><div class="toc-t">目录</div><a href="#计费方式" data-toc="计费方式" class="">计费方式</a><a href="#怎么充值" data-toc="怎么充值" class="">怎么充值</a><a href="#余额不足会怎样" data-toc="余额不足会怎样" class="">余额不足会怎样</a><a href="#余额提醒" data-toc="余额提醒" class="">余额提醒</a></aside></div></div>
+    </main>
+  </div>
+</div>
+<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<div class="toast" id="toast"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

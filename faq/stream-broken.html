@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>回答到一半断了 - 聚合导航</title>
+<meta name="description" content="流式中断，重发即可；总在同一处断就换问法 —— 聚合导航">
+<meta property="og:title" content="回答到一半断了 - 聚合导航">
+<meta property="og:description" content="流式中断，重发即可；总在同一处断就换问法 —— 聚合导航">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://juheaidh.pages.dev/faq/stream-broken.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
+    <div id="navList">
+      <a class="nav-item" href="../index.html">
+        <span class="nav-ico">🏠</span><span class="nav-label">全部内容</span><span class="nav-count">15</span>
+      </a>
+      <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">4</span></a><a class="nav-item" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">7</span></a>
+    </div>
+    <div class="sidebar-foot">
+      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+    </div>
+  </aside>
+  <div class="mask" id="mask"></div>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">问题解答</a><span class="sep">/</span><b>回答到一半断了</b></nav>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+    </header>
+    <main class="content" id="app">
+<div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 问题解答</div><h1>回答到一半断了</h1><div class="lead">流式中断，重发即可；总在同一处断就换问法</div><div class="article-meta"><span class="m">🗓 2026-10-31</span><span class="dot"></span><span class="m">⏱ 约 2 分钟</span><span class="dot"></span><span class="m">📑 2 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#怎么办" data-toc="怎么办" class="">怎么办</a></div></details><article class="article" id="articleBody"><h2 id="报错长这样">报错长这样</h2><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>stream disconnected before completion
+stream ended before a terminal event
+Upstream response stream was interrupted
+504 Gateway Timeout</code></pre></div><h2 id="怎么办">怎么办</h2><p><strong>1. 直接重发</strong></p><p>多数情况重试就好，只是网络抖动。</p><p><strong>2. 总在同一处断 → 换问法</strong></p><p>如果每次都断在相同位置，说明是那段内容触发了问题（可能是敏感词，也可能是上游解析不了）。</p><p><strong>3. 关掉梯子或换网络</strong></p><p>网络不稳是流式中断的主因。</p><p><strong>4. 超长回答分段要</strong></p><p>让它先写第一部分，再继续写第二部分。一次生成几万字很容易中途断。</p><p><strong>5. 关掉客户端的流式输出</strong></p><p>有些客户端在流式模式下有 bug，改成非流式（关闭 Stream 开关）再试。</p><p><strong>6. 超时设长一点</strong></p><p>客户端超时至少给 60 秒，复杂任务给 300 秒。</p></article><div class="pager"><a class="pager-btn prev" href="../faq/content-blocked.html"><span class="pager-lbl">← 上一篇</span><span class="pager-title">内容被拦截</span></a><div class="pager-btn next pager-empty"><span class="pager-lbl">下一篇 →</span><span class="pager-title">已经是最后一篇</span></div></div><div class="related"><div class="related-t">同类内容</div><div class="grid"><a class="card" href="../faq/timeout.html"><div class="card-ico">🌐</div><div class="card-body"><div class="card-title"><span>连接超时、连不上</span><span class="badge-art">文章</span></div><div class="card-desc">报错 timeout、Connection refused 时按这个顺序排查</div><div class="card-tags"><span class="tag">网络</span><span class="tag">高频</span></div></div></a><a class="card" href="../faq/auth-401.html"><div class="card-ico">🔑</div><div class="card-body"><div class="card-title"><span>401 认证失败</span><span class="badge-art">文章</span></div><div class="card-desc">密钥无效、incorrect api key，多数是复制带了空格</div><div class="card-tags"><span class="tag">密钥</span><span class="tag">高频</span></div></div></a><a class="card" href="../faq/insufficient-balance.html"><div class="card-ico">💰</div><div class="card-body"><div class="card-title"><span>余额不足</span><span class="badge-art">文章</span></div><div class="card-desc">403 Insufficient balance，充值即可恢复</div><div class="card-tags"><span class="tag">计费</span></div></div></a></div></div></div><aside class="toc toc-d"><div class="toc-t">目录</div><a href="#报错长这样" data-toc="报错长这样" class="">报错长这样</a><a href="#怎么办" data-toc="怎么办" class="">怎么办</a></aside></div></div>
+    </main>
+  </div>
+</div>
+<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<div class="toast" id="toast"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

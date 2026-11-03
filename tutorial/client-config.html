@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>客户端配置指南 - 聚合导航</title>
+<meta name="description" content="Cherry Studio、ChatBox、Cursor、Claude Code 分别怎么填 —— 聚合导航">
+<meta property="og:title" content="客户端配置指南 - 聚合导航">
+<meta property="og:description" content="Cherry Studio、ChatBox、Cursor、Claude Code 分别怎么填 —— 聚合导航">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://juheaidh.pages.dev/tutorial/client-config.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-dot"></span><span>聚合导航</span></div>
+    <div id="navList">
+      <a class="nav-item" href="../index.html">
+        <span class="nav-ico">🏠</span><span class="nav-label">全部内容</span><span class="nav-count">15</span>
+      </a>
+      <a class="nav-item" href="../index.html#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5"><span class="nav-ico">🔗</span><span class="nav-label">网站链接</span><span class="nav-count">4</span></a><a class="nav-item on" href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-ico">📘</span><span class="nav-label">使用教程</span><span class="nav-count">4</span></a><a class="nav-item" href="../index.html#%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-ico">💡</span><span class="nav-label">问题解答</span><span class="nav-count">7</span></a>
+    </div>
+    <div class="sidebar-foot">
+      <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
+      <a class="icon-btn" href="../index.html" title="回到首页">🏠</a>
+    </div>
+  </aside>
+  <div class="mask" id="mask"></div>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <nav class="crumb" id="crumb"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B">使用教程</a><span class="sep">/</span><b>客户端配置指南</b></nav>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="printBtn" title="打印/存为 PDF">🖨</button>
+    </header>
+    <main class="content" id="app">
+<div class="detail-wrap"><div class="article-layout"><div class="article-main"><div class="article-hero"><div class="kicker">📘 使用教程</div><h1>客户端配置指南</h1><div class="lead">Cherry Studio、ChatBox、Cursor、Claude Code 分别怎么填</div><div class="article-meta"><span class="m">🗓 2026-10-31</span><span class="dot"></span><span class="m">⏱ 约 4 分钟</span><span class="dot"></span><span class="m">📑 4 个小节</span></div></div><details class="toc-bar"><summary>📑 本文目录</summary><div class="toc toc-m"><div class="toc-t">目录</div><a href="#cherry-studio-chatbox-nextchat" data-toc="cherry-studio-chatbox-nextchat" class="">Cherry Studio / ChatBox / NextChat</a><a href="#cursor" data-toc="cursor" class="">Cursor</a><a href="#claude-code" data-toc="claude-code" class="">Claude Code</a><a href="#不知道自己该用哪个协议" data-toc="不知道自己该用哪个协议" class="">不知道自己该用哪个协议？</a></div></details><article class="article" id="articleBody"><h2 id="cherry-studio-chatbox-nextchat">Cherry Studio / ChatBox / NextChat</h2><p>这类聊天客户端都走 <strong>OpenAI 兼容协议</strong>，配置大同小异：</p><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">text</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>API 地址：https://api.juheai.shop
+API 密钥：sk-xxxxxxxx
+模型：deepseek-v4.1-flash（举例，以模型广场为准）</code></pre></div><p>添加模型时，如果客户端要你手填模型 ID，就从<strong>模型广场</strong>复制，别手打。</p><h2 id="cursor">Cursor</h2><p>Cursor 用的是 OpenAI 协议，在 <code>Settings → Models → OpenAI API Key</code> 里：</p><ol><li>勾选 <strong>Override OpenAI Base URL</strong></li><li>Base URL 填 <code>https://api.juheai.shop/v1</code></li><li>API Key 填你的密钥</li><li>点 <strong>Verify</strong> 验证</li></ol><blockquote><p>Cursor 这里<strong>需要</strong>带 <code>/v1</code>，它不会自动补。这是最容易搞错的地方。</p></blockquote><h2 id="claude-code">Claude Code</h2><p>Claude Code 走 <strong>Anthropic 协议</strong>，需要配环境变量：</p><div class="code-wrap"><div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div><span class="code-lang">bash</span><button class="code-copy" data-code="copy">📋 复制</button></div><pre><code>export ANTHROPIC_BASE_URL=https://api.juheai.shop
+export ANTHROPIC_AUTH_TOKEN=sk-xxxxxxxx</code></pre></div><p><strong>注意</strong>：Claude Code 必须用支持 Anthropic 协议的分组。如果你的密钥是纯 OpenAI 分组，会报 <code>This group does not allow /v1/messages dispatch</code>。</p><h2 id="不知道自己该用哪个协议">不知道自己该用哪个协议？</h2><p>记住一句话：</p><div class="table-wrap"><table><thead><tr><th>你用的客户端</th><th>协议</th><th>密钥要求</th></tr></thead><tbody><tr><td>Cherry Studio、ChatBox、Cursor</td><td>OpenAI</td><td>任意分组</td></tr><tr><td>Claude Code、Claude 官方客户端</td><td>Anthropic</td><td>必须支持 Anthropic 的分组</td></tr></tbody></table></div><p>不确定就问客服，别自己猜。</p></article><div class="pager"><a class="pager-btn prev" href="../tutorial/quick-start.html"><span class="pager-lbl">← 上一篇</span><span class="pager-title">快速开始：三步接入</span></a><a class="pager-btn next" href="../tutorial/choose-model.html"><span class="pager-lbl">下一篇 →</span><span class="pager-title">如何选择模型</span></a></div><div class="related"><div class="related-t">同类内容</div><div class="grid"><a class="card" href="../tutorial/quick-start.html"><div class="card-ico">🚀</div><div class="card-body"><div class="card-title"><span>快速开始：三步接入</span><span class="badge-art">文章</span></div><div class="card-desc">注册、创建密钥、填入客户端，五分钟跑通第一个请求</div><div class="card-tags"><span class="tag">入门</span><span class="tag">必读</span></div></div></a><a class="card" href="../tutorial/choose-model.html"><div class="card-ico">🎯</div><div class="card-body"><div class="card-title"><span>如何选择模型</span><span class="badge-art">文章</span></div><div class="card-desc">不同场景该用哪个模型，贵的和便宜的区别在哪</div><div class="card-tags"><span class="tag">选型</span></div></div></a><a class="card" href="../tutorial/billing.html"><div class="card-ico">💳</div><div class="card-body"><div class="card-title"><span>充值与计费说明</span><span class="badge-art">文章</span></div><div class="card-desc">余额怎么算、怎么充、用完会怎样</div><div class="card-tags"><span class="tag">充值</span><span class="tag">计费</span></div></div></a></div></div></div><aside class="toc toc-d"><div class="toc-t">目录</div><a href="#cherry-studio-chatbox-nextchat" data-toc="cherry-studio-chatbox-nextchat" class="">Cherry Studio / ChatBox / NextChat</a><a href="#cursor" data-toc="cursor" class="">Cursor</a><a href="#claude-code" data-toc="claude-code" class="">Claude Code</a><a href="#不知道自己该用哪个协议" data-toc="不知道自己该用哪个协议" class="">不知道自己该用哪个协议？</a></aside></div></div>
+    </main>
+  </div>
+</div>
+<button class="to-top" id="toTop" title="回到顶部">↑</button>
+<div class="toast" id="toast"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>
