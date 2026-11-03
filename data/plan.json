@@ -11,27 +11,27 @@
   {
     "idx": 1,
     "dir": "link",
-    "slug": "juheai-node",
-    "url": "link/juheai-node.html",
-    "title": "节点订阅站",
+    "slug": "juheai-shop",
+    "url": "link/juheai-shop.html",
+    "title": "聚合AI充值/订阅",
     "group": "网站链接",
     "type": "link"
   },
   {
     "idx": 2,
     "dir": "link",
-    "slug": "github",
-    "url": "link/github.html",
-    "title": "GitHub",
+    "slug": "lingjing",
+    "url": "link/lingjing.html",
+    "title": "灵境公益站",
     "group": "网站链接",
     "type": "link"
   },
   {
     "idx": 3,
     "dir": "link",
-    "slug": "lingjing",
-    "url": "link/lingjing.html",
-    "title": "灵境公益站",
+    "slug": "free-models",
+    "url": "link/free-models.html",
+    "title": "免费模型网站汇总",
     "group": "网站链接",
     "type": "link"
   },
