@@ -72,59 +72,72 @@
       ]
     },
     {
-      "type": "article",
+      "type": "link",
       "group": "使用教程",
-      "title": "快速开始：三步接入",
-      "desc": "注册、创建密钥、填入客户端，五分钟跑通第一个请求",
+      "title": "第一步：科学上网",
+      "url": "https://api.juheai.shop/official/speedup.html",
+      "desc": "网络环境的准备与配置，先解决访问问题",
+      "tags": [
+        "入门",
+        "必看"
+      ],
+      "icon": "🌐",
+      "points": [
+        "打不开官网或接口时，通常是网络环境问题",
+        "按页面里的步骤配置好网络再往下走",
+        "配置完成后回到本站继续第二步"
+      ]
+    },
+    {
+      "type": "link",
+      "group": "使用教程",
+      "title": "第二步：新人全流程",
+      "url": "https://api.juheai.shop/official/tutorial/quickstart.html",
+      "desc": "从注册到正常调用，新手完整流程",
       "tags": [
         "入门",
         "必读"
       ],
       "icon": "🚀",
-      "date": "2026-10-31",
-      "read": 3,
-      "body": "## 第一步：登录控制台\n\n打开 [Sub2API 控制台](https://api.juheai.shop)，用注册的邮箱登录。\n\n登录后先看一眼**余额**，新账户可能有免费额度，也可能需要先充值。\n\n## 第二步：创建密钥\n\n进入「密钥」页面，点「新建密钥」，然后：\n\n- **选择分组**：不同分组对应不同的模型和价格，不确定就先用默认分组\n- **设置名称**：随便起个名字，方便以后区分（比如「Cherry 用」）\n- **设置额度**：可选，不填就是不限\n\n创建后会得到一串以 `sk-` 开头的字符串。**这串东西只显示一次**，一定复制保存好。\n\n> 密钥等同于你的账号密码。不要发给任何人，也不要提交到 Git 仓库。\n\n## 第三步：填入客户端\n\n以 Cherry Studio 为例，在设置里添加一个 OpenAI 兼容的服务商：\n\n| 配置项 | 填什么 |\n|---|---|\n| API 地址 | `https://api.juheai.shop` |\n| API 密钥 | 刚才复制的那串 `sk-...` |\n| 模型 | 从控制台的「模型广场」复制模型名 |\n\n保存后发一条消息测试，能正常回复就算接通了。\n\n## 常见卡点\n\n- **地址结尾不要加 `/v1`**，多数客户端会自动补，加了会变成 `/v1/v1`\n- **密钥首尾不要有空格**，从网页复制常带换行\n- **模型名要完全一致**，包括大小写和连字符"
+      "points": [
+        "注册账号 → 创建密钥 → 填入客户端，一条线走完",
+        "每一步都有截图和说明",
+        "遇到问题先看第四步的兜底教程"
+      ]
     },
     {
-      "type": "article",
+      "type": "link",
       "group": "使用教程",
-      "title": "客户端配置指南",
-      "desc": "Cherry Studio、ChatBox、Cursor、Claude Code 分别怎么填",
+      "title": "第三步：软件接入",
+      "url": "https://api.juheai.shop/official/tutorial/index.html#software",
+      "desc": "各类客户端和软件的接入配置方法",
       "tags": [
         "配置",
         "客户端"
       ],
-      "icon": "🛠",
-      "date": "2026-10-31",
-      "read": 4,
-      "body": "## Cherry Studio / ChatBox / NextChat\n\n这类聊天客户端都走 **OpenAI 兼容协议**，配置大同小异：\n\n```text\nAPI 地址：https://api.juheai.shop\nAPI 密钥：sk-xxxxxxxx\n模型：deepseek-v4.1-flash（举例，以模型广场为准）\n```\n\n添加模型时，如果客户端要你手填模型 ID，就从**模型广场**复制，别手打。\n\n## Cursor\n\nCursor 用的是 OpenAI 协议，在 `Settings → Models → OpenAI API Key` 里：\n\n1. 勾选 **Override OpenAI Base URL**\n2. Base URL 填 `https://api.juheai.shop/v1`\n3. API Key 填你的密钥\n4. 点 **Verify** 验证\n\n> Cursor 这里**需要**带 `/v1`，它不会自动补。这是最容易搞错的地方。\n\n## Claude Code\n\nClaude Code 走 **Anthropic 协议**，需要配环境变量：\n\n```bash\nexport ANTHROPIC_BASE_URL=https://api.juheai.shop\nexport ANTHROPIC_AUTH_TOKEN=sk-xxxxxxxx\n```\n\n**注意**：Claude Code 必须用支持 Anthropic 协议的分组。如果你的密钥是纯 OpenAI 分组，会报 `This group does not allow /v1/messages dispatch`。\n\n## 不知道自己该用哪个协议？\n\n记住一句话：\n\n| 你用的客户端 | 协议 | 密钥要求 |\n|---|---|---|\n| Cherry Studio、ChatBox、Cursor | OpenAI | 任意分组 |\n| Claude Code、Claude 官方客户端 | Anthropic | 必须支持 Anthropic 的分组 |\n\n不确定就问客服，别自己猜。"
+      "icon": "💻",
+      "points": [
+        "覆盖常用客户端：ChatBox、Cherry Studio、NextChat 等",
+        "每款软件都给了接口地址和密钥填法",
+        "注意地址结尾不要多加 /v1"
+      ]
     },
     {
-      "type": "article",
+      "type": "link",
       "group": "使用教程",
-      "title": "如何选择模型",
-      "desc": "不同场景该用哪个模型，贵的和便宜的区别在哪",
+      "title": "第四步：兜底教程",
+      "url": "https://api.juheai.shop/official/tutorial/index.html#fallback",
+      "desc": "前面都走不通时的备选方案和排查方法",
       "tags": [
-        "选型"
+        "排查",
+        "备用"
       ],
-      "icon": "🎯",
-      "date": "2026-10-31",
-      "read": 3,
-      "body": "## 先看模型广场\n\n控制台里的**模型广场**列出了当前可用的所有模型和价格。以那里为准，本文只是给个思路。\n\n## 按场景选\n\n| 场景 | 建议 |\n|---|---|\n| 日常问答、翻译、总结 | 便宜的 Flash 类模型就够 |\n| 写代码、改 bug | 中高档模型，代码能力差距明显 |\n| 长文档分析（几十页 PDF） | 必须选支持长上下文的，注意阶梯价 |\n| 创意写作 | 中高档，便宜的写出来比较干 |\n\n## 关于价格\n\n模型价格 = **渠道定价 × 分组倍率**。\n\n- 倍率 0.1 的意思是「官方价的十分之一」\n- 同一个模型在不同分组里倍率可能不同\n- 充值前先看清楚你要用的分组倍率\n\n## 关于长上下文\n\n部分模型启用了**阶梯计费**：\n\n| 输入长度 | 价格 |\n|---|---|\n| ≤ 272K tokens | 标准价 |\n| > 272K tokens | 标准价 × 2 |\n\n所以别没事塞一整个代码库进去。**按需给上下文**，又快又省钱。\n\n## 一个实用建议\n\n先用便宜模型把 prompt 调好，确认效果满意了，再换贵模型跑正式内容。这样试错成本最低。"
-    },
-    {
-      "type": "article",
-      "group": "使用教程",
-      "title": "充值与计费说明",
-      "desc": "余额怎么算、怎么充、用完会怎样",
-      "tags": [
-        "充值",
-        "计费"
-      ],
-      "icon": "💳",
-      "date": "2026-10-31",
-      "read": 2,
-      "body": "## 计费方式\n\n按 **token** 计费，用多少扣多少，不做预扣。\n\n每次请求后，控制台的「用量」页面会记录：\n\n- 用了哪个模型\n- 输入多少 token、输出多少 token\n- 扣了多少钱\n\n## 怎么充值\n\n控制台 → 充值页面，按提示操作。\n\n> 建议先小额测试（几块钱），确认整条链路通了再充大额。\n\n## 余额不足会怎样\n\n请求会被直接拒绝，返回：\n\n```text\n403 Insufficient account balance\n```\n\n这时候充值即可恢复，不需要重启任何东西。\n\n## 余额提醒\n\n余额较低时系统会发提醒（邮件或站内通知）。留意一下，别等断了才发现。"
+      "icon": "🛟",
+      "points": [
+        "常见的连接失败、认证失败、模型不存在等问题",
+        "按报错关键词找到对应解决步骤",
+        "实在不行可以联系站长"
+      ]
     },
     {
       "type": "article",

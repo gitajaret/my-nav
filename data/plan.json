@@ -38,38 +38,38 @@
   {
     "idx": 4,
     "dir": "tutorial",
-    "slug": "quick-start",
-    "url": "tutorial/quick-start.html",
-    "title": "快速开始：三步接入",
+    "slug": "step1-speedup",
+    "url": "tutorial/step1-speedup.html",
+    "title": "第一步：科学上网",
     "group": "使用教程",
-    "type": "article"
+    "type": "link"
   },
   {
     "idx": 5,
     "dir": "tutorial",
-    "slug": "client-config",
-    "url": "tutorial/client-config.html",
-    "title": "客户端配置指南",
+    "slug": "step2-quickstart",
+    "url": "tutorial/step2-quickstart.html",
+    "title": "第二步：新人全流程",
     "group": "使用教程",
-    "type": "article"
+    "type": "link"
   },
   {
     "idx": 6,
     "dir": "tutorial",
-    "slug": "choose-model",
-    "url": "tutorial/choose-model.html",
-    "title": "如何选择模型",
+    "slug": "step3-software",
+    "url": "tutorial/step3-software.html",
+    "title": "第三步：软件接入",
     "group": "使用教程",
-    "type": "article"
+    "type": "link"
   },
   {
     "idx": 7,
     "dir": "tutorial",
-    "slug": "billing",
-    "url": "tutorial/billing.html",
-    "title": "充值与计费说明",
+    "slug": "step4-fallback",
+    "url": "tutorial/step4-fallback.html",
+    "title": "第四步：兜底教程",
     "group": "使用教程",
-    "type": "article"
+    "type": "link"
   },
   {
     "idx": 8,
