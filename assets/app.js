@@ -49,6 +49,29 @@ document.addEventListener("click", (e) => {
     return;
   }
 
+  // 代码块复制
+  const codeBtn = t.closest("[data-copycode]");
+  if (codeBtn) {
+    var wrap = codeBtn.closest(".code-wrap");
+    var code = wrap ? wrap.querySelector("pre code") : null;
+    if (code) {
+      var txt = code.textContent;
+      var done = function () {
+        codeBtn.textContent = "✓ 已复制";
+        setTimeout(function () { codeBtn.textContent = "📋 复制"; }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(done, function () { toast("复制失败，请手动选择", false); });
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = txt; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch (_) { toast("复制失败", false); }
+        document.body.removeChild(ta);
+      }
+    }
+    return;
+  }
+
   // 主题
   if (t.closest("#themeBtn")) {
     const cur = document.documentElement.getAttribute("data-theme") || "dark";

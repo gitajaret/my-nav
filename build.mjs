@@ -68,7 +68,7 @@ function md(src) {
           '<div class="code-wrap"><div class="code-bar">' +
             '<div class="code-dots"><i></i><i></i><i></i></div>' +
             '<span class="code-lang">' + esc(codeLang || "text") + "</span>" +
-            '<button class="code-copy" data-code="copy">📋 复制</button>' +
+            '<button class="code-copy" data-copycode="1">📋 复制</button>' +
           "</div><pre><code>" + esc(codeBuf.join("\n")) + "</code></pre></div>"
         );
         inCode = false;
@@ -99,7 +99,11 @@ function md(src) {
     out.push("<p>" + inline(ln) + "</p>");
   }
   flushList(); flushTable();
-  if (inCode && codeBuf.length) out.push('<div class="code-wrap"><pre><code>' + esc(codeBuf.join("\n")) + "</code></pre></div>");
+  if (inCode && codeBuf.length) out.push('<div class="code-wrap">' +
+    '<div class="code-bar"><div class="code-dots"><i></i><i></i><i></i></div>' +
+    '<span class="code-lang">' + esc(codeLang || "text") + '</span>' +
+    '<button class="code-copy" data-copycode="1">📋 复制</button></div>' +
+    '<pre><code>' + esc(codeBuf.join("\n")) + "</code></pre></div>");
 
   return { html: out.join(""), toc };
 }
